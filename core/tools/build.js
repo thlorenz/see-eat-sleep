@@ -20,6 +20,6 @@ var build = module.exports = function (opts) {
     .require(opts.entry, { entry: true })
     .bundle({ debug: opts.debug });
 };
-
+/*
 if (module === require.main)
-  build().pipe(fs.createWriteStream(bundlePath));
+  build().pipe(fs.createWriteStream(bundlePath));*/
