@@ -1,26 +1,21 @@
 {
-    "name" : "see",
+    "name" : "ses-see",
     "version" : "0.0.0",
     "description" : "the portion of the app where you get to see things",
     "main" : "index.js",
     "scripts" : {
-      "test-main" :  "tap test/*.js",
-      "test-0.8"  :  "nave use 0.8 npm run test-main",
-      "test-0.10" :  "nave use 0.10 npm run test-main",
-      "test-all": "npm run test-main && npm run test-0.8 && npm run test-0.10",
-      "test"      :  "if [ -e $TRAVIS ]; then npm run test-all; else npm run test-main; fi"
+      "preinstall": "sh ./preinstall.sh"
     },
     "repository" : {
       "type" : "git",
       "url" : "git://github.com/thlorenz/see.git"
     },
     "homepage" : "https://github.com/thlorenz/see",
+    "optionalDependencies": {
+    },
     "dependencies" : {
     },
     "devDependencies" : {
-      "nave": "~0.4.3",
-      "tape": "~1.0.4",
-      "tap": "~0.4.3"
     },
     "keywords": [] ,
     "author" : {

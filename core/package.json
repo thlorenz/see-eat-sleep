@@ -2,7 +2,7 @@
     "name" : "core",
     "version" : "0.0.0",
     "description" : "core functionality shared by the see-eat-sleep apps",
-    "main" : "index.js",
+    "main" : "./server/index.js",
     "scripts" : {
       "test-main" :  "tap test/*.js",
       "test-0.8"  :  "nave use 0.8 npm run test-main",
