@@ -1,6 +1,7 @@
 'use strict';
 
 var fs = require('fs');
+var Handlebars = require('handlebars');
 
 /**
  * Registers all partials that are exposed by this package with handlebars.
@@ -8,16 +9,14 @@ var fs = require('fs');
  *
  * @name exports
  * @function
- * @param Handlebars {Object} Handlebars dependency
  */
-var go = module.exports = function (Handlebars) {
+var go = module.exports = function (partialsDir, prefix) {
 
-  // these files could be auto discovered in the templates dir, but explicitness is good at times
-  [ 'head.hbs', 'header.hbs' ]
+  fs.readdirSync(partialsDir)
     .forEach(function (file) {
-      var fullPath = require.resolve('../../client/templates/' + file);
+      var fullPath = require.resolve(partialsDir + '/' + file);
       var name = file.slice(0, -4); // .hbs has four chars
-      var id = 'ses-core-' + name;
+      var id = prefix + name;
 
       var tmpl = fs.readFileSync(fullPath, 'utf8');
 
@@ -27,7 +26,6 @@ var go = module.exports = function (Handlebars) {
 
 // Test
 if (!module.parent) {
-  var Handlebars = require('handlebars');
-  go(Handlebars);
+  go(__dirname + '/../../client/templates/partials');
   console.log(Handlebars.partials);
 }

@@ -10,16 +10,21 @@ var fs = require('fs');
 var extend = require('util')._extend;
 var bundlePath = path.join(__dirname, '..', 'bundle.js');
 
-var build = module.exports = function (opts) {
-  if (!opts || !opts.entry) throw new Error('Need opts that have at least the entry path');
+var build = module.exports = function (opts, cb) {
+  if (!opts || !opts.entry)
+    throw new Error('Need opts that have at least the entry path');
+
+  if (cb && typeof cb !== 'function')
+    throw new Error('Second arg needs to be a callback function');
 
   var shims = extend(coreShims, (opts.shims || {}));
 
-  return shim(browserify(), shims)
+  shim(browserify(), shims)
     .transform(require.resolve('hbsfy'))
     .require(opts.entry, { entry: true })
-    .bundle({ debug: opts.debug });
+    .bundle({ debug: opts.debug }, cb);
 };
+
 /*
 if (module === require.main)
   build().pipe(fs.createWriteStream(bundlePath));*/
