@@ -2,7 +2,7 @@
     "name" : "ses-see",
     "version" : "0.0.0",
     "description" : "the portion of the app where you get to see things",
-    "main" : "index.js",
+    "main" : "./server/index.js",
     "scripts" : {
       "preinstall": "sh ./preinstall.sh"
     },

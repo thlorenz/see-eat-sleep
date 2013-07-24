@@ -2,7 +2,7 @@
 var core = require('ses-core');
 
 var go = module.exports = function () {
-  return 'hello ' + core.hello;
+  return 'hello ' + core.hello();
 };
 
 // Test
