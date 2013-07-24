@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "the portion of the app where you get to see things",
   "main": "./server/index.js",
-  "browser": "./client/index.js",
+  "browser": "./client/see.js",
   "scripts": {
     "preinstall": "sh ./preinstall.sh",
     "postinstall": "npm dedupe",

@@ -10,7 +10,7 @@ var partialsDir = path.join(templatesDir, 'partials');
 core.registerPartials(partialsDir, 'ses-see-');
 
 var app = core.devServer({
-  build: { entry: require.resolve('./client') }
+  build: { entry: require.resolve('./client/see') }
 });
 
 app.get('/', function (req, res, next) {
