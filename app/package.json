@@ -1,0 +1,35 @@
+{
+  "name": "ses-main",
+  "version": "0.0.0",
+  "description": "the main app that brings all sub apps together",
+  "main": "./server/index.js",
+  "browser": "./client/main.js",
+  "scripts": {
+    "preinstall": "sh ./preinstall.sh",
+    "postinstall": "npm dedupe",
+    "start": "nodemon dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thlorenz/see-eat-sleep.git"
+  },
+  "homepage": "https://github.com/thlorenz/see-eat-sleep",
+  "optionalDependencies": {},
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "~0.7.8"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Thorsten Lorenz",
+    "email": "thlorenz@gmx.de",
+    "url": "http://thlorenz.com"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/thlorenz/see-eat-sleep/blob/master/LICENSE"
+  },
+  "engine": {
+    "node": ">=0.6"
+  }
+}

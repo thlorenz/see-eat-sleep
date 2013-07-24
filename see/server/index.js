@@ -1,11 +1,15 @@
 'use strict';
 var core = require('ses-core');
 
-var go = module.exports = function () {
-  return 'hello ' + core.hello();
+var path = require('path');
+var fs = require('fs');
+
+var templatesDir = path.join(__dirname, '..', 'client', 'templates');
+var partialsDir = path.join(templatesDir, 'partials');
+
+exports.init = function () {
+  core.registerPartials(partialsDir, 'ses-see-');
 };
 
-// Test
-if (!module.parent) {
-  console.log(go());
-}
+exports.templatesDir = templatesDir;
+exports.partialsDir = partialsDir;
