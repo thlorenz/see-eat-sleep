@@ -18,7 +18,7 @@ var build = module.exports = function (opts) {
   return shim(browserify(), shims)
     .transform('hbsfy')
     .require(opts.entry, { entry: true })
-    .bundle({ debug: true });
+    .bundle({ debug: opts.debug });
 };
 
 if (module === require.main)
