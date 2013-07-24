@@ -18,7 +18,7 @@ var go = module.exports = function (opts) {
   if (typeof opts.build.debug === 'undefined') opts.build.debug = true;
 
   app.set('view engine', 'hbs');
-  app.use('/css', express.static(path.join(__dirname, 'client', 'css')));
+  app.use('/ses-core-css', express.static(path.join(__dirname, 'client', 'css')));
 
   app.get('/bundle.js', function (req, res, next) {
     build(opts.build, function (err, bundle) {
