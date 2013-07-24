@@ -28,7 +28,8 @@
     "browserify-shim": "~2.0.7",
     "handlebars-runtime": "~1.0.12",
     "hbsfy": "~0.1.5",
-    "concat-stream": "~1.0.0"
+    "concat-stream": "~1.0.0",
+    "mold-source-map": "~0.2.0"
   },
   "keywords": [],
   "author": {

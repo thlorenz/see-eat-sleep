@@ -7,8 +7,11 @@ var shim = require('browserify-shim');
 var coreShims = require('../config/shims');
 var path = require('path');
 var fs = require('fs');
+var mold = require('mold-source-map');
 var extend = require('util')._extend;
-var bundlePath = path.join(__dirname, '..', 'bundle.js');
+var concatStream = require('concat-stream');
+
+var root = path.join(__dirname, '..', '..');
 
 var build = module.exports = function (opts, cb) {
   if (!opts || !opts.entry)
@@ -19,12 +22,21 @@ var build = module.exports = function (opts, cb) {
 
   var shims = extend(coreShims, (opts.shims || {}));
 
-  shim(browserify(), shims)
+  var stream = shim(browserify(), shims)
     .transform(require.resolve('hbsfy'))
     .require(opts.entry, { entry: true })
-    .bundle({ debug: opts.debug }, cb);
-};
+    .bundle({ debug: opts.debug });
 
-/*
-if (module === require.main)
-  build().pipe(fs.createWriteStream(bundlePath));*/
+  // mold sourcemaps to get shorter paths in chrome
+  // in the future we may replace these with an actual fullPath map file
+  // especially if in the browser editing is desired
+  if (opts.debug) stream = stream.pipe(mold.transformSourcesRelativeTo(root));
+
+  function bufferNcallback() {
+    return stream
+      .on('error', cb)
+      .pipe(concatStream(function (res) { cb(null, res); }));
+  }
+
+  return cb ? bufferNcallback() : stream;
+};
