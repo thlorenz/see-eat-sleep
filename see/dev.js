@@ -7,8 +7,6 @@ var core = require('ses-core');
 
 var server = require('./server');
 
-server.init();
-
 var app = core.devServer({
   build: { entry: require.resolve('./client/see') }
 });
