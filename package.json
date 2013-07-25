@@ -4,6 +4,7 @@
     "description" : "Example of building a larger app with multiple smaller apps using npm and browserify.",
     "main" : "index.js",
     "scripts" : {
+      "start": "cd ./app && npm start"
     },
     "repository" : {
       "type" : "git",
