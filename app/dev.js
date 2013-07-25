@@ -5,17 +5,14 @@ var fs = require('fs');
 
 var core = require('ses-core');
 
-// initialize server side see like routes, etc.
+// initialize server side 'see' like routes, etc.
 var see = require('ses-see');
-
 
 var templatesDir = path.join(__dirname, 'client', 'templates');
 var partialsDir = path.join(templatesDir, 'partials');
 
-core.registerPartials(partialsDir, 'ses-app-');
-
 var app = core.devServer({
-  build: { entry: require.resolve('./client/see') }
+  build: { entry: require.resolve('./client/app') }
 });
 
 app.get('/', function (req, res, next) {
