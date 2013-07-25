@@ -4,11 +4,9 @@
 
 var browserify = require('browserify');
 var shim = require('browserify-shim');
-var coreShims = require('../config/shims');
 var path = require('path');
 var fs = require('fs');
 var mold = require('mold-source-map');
-var extend = require('util')._extend;
 var concatStream = require('concat-stream');
 
 var root = path.join(__dirname, '..', '..');
@@ -20,9 +18,12 @@ var build = module.exports = function (opts, cb) {
   if (cb && typeof cb !== 'function')
     throw new Error('Second arg needs to be a callback function');
 
-  var shims = extend(coreShims, (opts.shims || {}));
+  /* jshint laxbreak: true */
+  var bfy = opts.shims
+    ? shim(browserify(), opts.shims)
+    : browserify();
 
-  var stream = shim(browserify(), shims)
+  var stream = bfy
     .transform(require.resolve('hbsfy'))
     .require(opts.entry, { entry: true })
     .bundle({ debug: opts.debug });

@@ -1,5 +1,7 @@
 'use strict';
-var core = require('ses-core');
+var boot = require('ses-bootstrap');
 var dirs = require('../config/directories');
 
-core.registerPartials(dirs.partials, 'ses-see-');
+boot.registerPartials(dirs.partials, 'ses-see-');
+
+boot.app.use('/ses-see-css', boot.express.static(dirs.css));

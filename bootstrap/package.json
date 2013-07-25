@@ -1,22 +1,27 @@
 {
   "name": "core",
   "version": "0.0.0",
-  "description": "The core app which is used by all the sub apps.",
-  "main": "./server/index.js",
-  "browser": "./client/core.js",
+  "description": "core functionality shared by the see-eat-sleep apps",
+  "main": "index.js",
   "scripts": {
-    "preinstall": "sh ./preinstall.sh",
-    "postinstall": "npm dedupe",
-    "start": "nodemon dev.js"
+    "postinstall": "npm dedupe"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/thlorenz/core.git"
   },
   "homepage": "https://github.com/thlorenz/core",
-  "dependencies": {},
+  "dependencies": {
+    "express": "~3.3.4",
+    "handlebars": "~1.0.12"
+  },
   "devDependencies": {
-    "nodemon": "~0.7.8"
+    "browserify-shim": "~2.0.7",
+    "handlebars-runtime": "~1.0.12",
+    "hbsfy": "~0.1.5",
+    "concat-stream": "~1.0.0",
+    "mold-source-map": "~0.2.0",
+    "browserify": "~2.25.1"
   },
   "keywords": [],
   "author": {

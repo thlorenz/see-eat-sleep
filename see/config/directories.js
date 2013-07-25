@@ -2,5 +2,8 @@
 
 var path = require('path');
 
-exports.templates = path.join(__dirname, '..', 'client', 'templates');
-exports.partials = path.join(exports.templates, 'partials');
+var client = path.join(__dirname, '..', 'client');
+
+exports.templates =  path.join(client, 'templates');
+exports.partials  =  path.join(exports.templates, 'partials');
+exports.css       =  path.join(client, 'css');
