@@ -2,19 +2,28 @@
 
 Example of building a larger app with multiple smaller apps using npm and browserify.
 
-```js
-// TODO
-```
-
-## Status
-
-Nix, Nada, Nichevo, Nothing --> go away!
 ## Installation
 
-    npm install see-eat-sleep
+    npm install thlorenz/see-eat-sleep
 
-## API
+or
 
+    git clone https://github.com/thlorenz/see-eat-sleep.git
+
+## Initialize and install deps
+    
+    cd see-eat-sleep && npm install
+
+## Launching app
+
+
+Launch **main app**:
+
+    npm start
+
+Launch **see sub app**:
+    
+    cd see && npm start
 
 ## License
 
