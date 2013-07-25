@@ -1,25 +1,19 @@
 'use strict';
 
 var path = require('path');
-var fs = require('fs');
 
+var dirs = require('./config/directories');
 var core = require('ses-core');
 
-// initialize server side 'see' like routes, etc.
-var see = require('ses-see');
-
-var templatesDir = path.join(__dirname, 'client', 'templates');
-var partialsDir = path.join(templatesDir, 'partials');
+// intialize main app which in turn initializes all sub apps
+require('./server');
 
 var app = core.devServer({
-  build: { entry: require.resolve('./client/app') }
-});
-
-app.get('/', function (req, res, next) {
-  fs.readFile(path.join(templatesDir, 'index.hbs'), 'utf8', function (err, tmpl) {
-    if (err) return next(err);
-    res.set({ 'Content-Type': 'text/html' });
-    var html = core.Handlebars.compile(tmpl)( { title: 'see' } );
-    res.send(200, html);
-  });
+  build: {
+    entry: require.resolve('./client/app')
+  },
+  page:  {
+    index: path.join(dirs.templates, 'index.hbs'),
+    context: { title: 'See-Eat-Sleep' }
+  }
 });
