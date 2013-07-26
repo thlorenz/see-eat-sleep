@@ -2,6 +2,13 @@
 
 var Backbone = require('backbone');
 
-var go = module.exports = function (el) {
-  console.log(el);
-};
+var SawView = module.exports = Backbone.View.extend({
+
+  events: {
+    'click': 'onclicked'
+  },
+
+  onclicked: function () {
+    console.log('so you saw?');
+  },
+});
