@@ -1,10 +1,14 @@
 'use strict';
 
 var seeShims = require('ses-see/config/shims');
-var xtend = require('util')._extend;
+var combineShims = require('ses-bootstrap').combineShims;
 
-var shims = { /* none yet */ };
+// for more info on configuring shims see ./core/config/shims
+var shims = {
+  wrap: undefined,
+  expose: undefined
+};
 
-// include the shims of all sub apps in the main app ones
-// xtend more subapps shims here if needed
-module.exports = xtend(shims, seeShims);
+// all shims need to be combined with the ones from the the app or core modules they depend on
+// therefore whenever we add another sub app with its own shims, we need to add it here
+module.exports = combineShims(seeShims, shims);

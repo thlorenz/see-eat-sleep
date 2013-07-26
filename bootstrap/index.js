@@ -8,3 +8,4 @@ exports.registerPartials =  require('./lib/register-partials');
 
 exports.Handlebars       =  require('handlebars');
 
+exports.combineShims     =  require('./lib/combine-shims');

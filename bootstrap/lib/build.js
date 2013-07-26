@@ -18,10 +18,19 @@ var build = module.exports = function (opts, cb) {
   if (cb && typeof cb !== 'function')
     throw new Error('Second arg needs to be a callback function');
 
+  opts.shims = opts.shims || {};
+
   /* jshint laxbreak: true */
-  var bfy = opts.shims
-    ? shim(browserify(), opts.shims)
+  var bfy = opts.shims.wrap
+    ? shim(browserify(), opts.shims.wrap)
     : browserify();
+
+  var expose = opts.shims.expose;
+  if (expose) {
+    Object.keys(expose).forEach(function (k) {
+      bfy.require(expose[k], { expose: k });
+    });
+  }
 
   var stream = bfy
     .transform(require.resolve('hbsfy'))
