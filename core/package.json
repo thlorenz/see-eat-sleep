@@ -7,7 +7,7 @@
   "scripts": {
     "preinstall": "sh ./preinstall.sh",
     "postinstall": "npm dedupe",
-    "start": "nodemon dev.js"
+    "start": "nodemon -e js,css,hbs,json dev.js"
   },
   "repository": {
     "type": "git",
