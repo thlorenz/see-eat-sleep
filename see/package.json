@@ -4,6 +4,11 @@
   "description": "the portion of the app where you get to see things",
   "main": "./server/index.js",
   "browser": "./client/see.js",
+  "browserify": {
+    "transform": [
+      "hbsfy"
+    ]
+  },
   "scripts": {
     "preinstall": "sh ./preinstall.sh",
     "postinstall": "npm dedupe",
@@ -16,7 +21,7 @@
   "homepage": "https://github.com/thlorenz/see",
   "optionalDependencies": {},
   "dependencies": {
-    "handlebars-runtime": "~1.0.12"
+    "hbsfy": "~0.1.5"
   },
   "devDependencies": {
     "nodemon": "~0.7.8"

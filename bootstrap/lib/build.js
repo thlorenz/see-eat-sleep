@@ -33,7 +33,6 @@ var build = module.exports = function (opts, cb) {
   }
 
   var stream = bfy
-    .transform(require.resolve('hbsfy'))
     .require(opts.entry, { entry: true })
     .bundle({ debug: opts.debug });
 
