@@ -19,7 +19,8 @@
     "concat-stream": "~1.0.0",
     "mold-source-map": "~0.2.0",
     "browserify": "~2.25.1",
-    "hyperwatch": "~0.5.0"
+    "hyperwatch": "~0.5.0",
+    "log-request": "0.0.1"
   },
   "devDependencies": {},
   "keywords": [],

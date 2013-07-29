@@ -15,7 +15,7 @@ var go = module.exports = function (opts) {
 
   if (typeof opts.build.debug === 'undefined') opts.build.debug = true;
 
-  app.use(express.logger());
+  app.use(require('log-request'));
   app.set('view engine', 'hbs');
 
   // serve the index file given to us by the app
