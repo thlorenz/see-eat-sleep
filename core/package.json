@@ -14,7 +14,9 @@
     "url": "git://github.com/thlorenz/core.git"
   },
   "homepage": "https://github.com/thlorenz/core",
-  "dependencies": {},
+  "dependencies": {
+    "hyperwatch": "~0.5.0"
+  },
   "devDependencies": {
     "nodemon": "~0.7.8"
   },

@@ -1,11 +1,13 @@
 'use strict';
 
-var path = require('path');
-var fs = require('fs');
+var path       =  require('path');
+var fs         =  require('fs');
 var Handlebars =  require('handlebars');
+var express    =  require('express');
 
 var build =  require('./build');
 var app   =  require('./app');
+var hyperwatch = require('hyperwatch');
 
 var go = module.exports = function (opts) {
   if (!opts.build) throw new Error('need to have build config on opts');
@@ -13,6 +15,7 @@ var go = module.exports = function (opts) {
 
   if (typeof opts.build.debug === 'undefined') opts.build.debug = true;
 
+  app.use(express.logger());
   app.set('view engine', 'hbs');
 
   // serve the index file given to us by the app
@@ -37,7 +40,8 @@ var go = module.exports = function (opts) {
     });
   });
 
-  app.listen(3000);
+
+  hyperwatch(app.listen(3000));
   console.log('Listening on http://localhost:3000 in debug mode');
 
   return app;
