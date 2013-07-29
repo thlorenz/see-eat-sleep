@@ -1,6 +1,16 @@
 #ses-see-main {
-  background: #111;
+  background: #333;
   color: yellow;
   border: 1px solid #222;
-  border-radius: 10px;
+  border-radius: 10px 5px 10px 5px;
+  padding: 20px;
+}
+
+.ses-see-sight {
+  max-width: 300px;
+  max-height: 188px;
+}
+
+.ses-see-saw {
+  cursor: pointer;
 }

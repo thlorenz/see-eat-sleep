@@ -15,7 +15,9 @@
   },
   "homepage": "https://github.com/thlorenz/see",
   "optionalDependencies": {},
-  "dependencies": {},
+  "dependencies": {
+    "handlebars-runtime": "~1.0.12"
+  },
   "devDependencies": {
     "nodemon": "~0.7.8"
   },

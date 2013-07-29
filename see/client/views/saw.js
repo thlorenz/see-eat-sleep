@@ -1,6 +1,7 @@
 'use strict';
 
 var Backbone = require('backbone');
+var localBus = require('../lib/local-bus');
 
 var SawView = module.exports = Backbone.View.extend({
 
@@ -9,6 +10,10 @@ var SawView = module.exports = Backbone.View.extend({
   },
 
   onclicked: function () {
-    console.log('so you saw?');
+    localBus.trigger('saw');
   },
+
+  initialize: function () {
+    console.log('initializing saw view');
+  }
 });

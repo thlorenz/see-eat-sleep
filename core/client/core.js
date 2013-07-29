@@ -6,8 +6,8 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 var _ = require('underscore');
 
-var noncjs = require('noncjs');
-
-exports.noncjsThing = noncjs;
-
 console.log('versions:\n ', { jquery: $().jquery, backbone: Backbone.VERSION, underscore: _.VERSION });
+
+exports.noncjsThing =  require('noncjs');
+exports.globalBus   =  require('./lib/global-bus');
+
