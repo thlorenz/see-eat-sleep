@@ -6,6 +6,9 @@
 mocha.ui('bdd');
 mocha.reporter('html');
 
+// the client side app
+require('../../client/see');
+
 // the test(s)
 require('./views/saw');
 

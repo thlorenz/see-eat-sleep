@@ -12,7 +12,9 @@
   "scripts": {
     "preinstall": "sh ./preinstall.sh",
     "postinstall": "npm dedupe",
-    "start": "nodemon -e js,css,hbs,json dev.js"
+    "start": "nodemon -e js,css,hbs,json dev.js",
+    "start-test": "nodemon -e js,css,hbs,json dev-test.js",
+    "test": "node dev-test --phantomjs"
   },
   "repository": {
     "type": "git",
@@ -25,8 +27,6 @@
   },
   "devDependencies": {
     "nodemon": "~0.7.8",
-    "mocha-phantomjs": "~3.1.0",
-    "phantomjs": "~1.9.1-0",
     "mocha": "~1.12.0"
   },
   "keywords": [],

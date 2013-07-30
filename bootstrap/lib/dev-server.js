@@ -15,6 +15,8 @@ var go = module.exports = function (opts) {
 
   if (typeof opts.build.debug === 'undefined') opts.build.debug = true;
 
+  var port = (opts.server && opts.server.port) || 3000;
+
   app.use(require('log-request'));
   app.set('view engine', 'hbs');
 
@@ -40,9 +42,12 @@ var go = module.exports = function (opts) {
     });
   });
 
+  var server = app.listen(port);
+  server.on('listening', function () {
+    console.log('Listening on http://localhost:%d in debug mode', port);
+  });
 
-  hyperwatch(app.listen(3000));
-  console.log('Listening on http://localhost:3000 in debug mode');
+  hyperwatch(server);
 
-  return app;
+  return { app: app, server: server };
 };
