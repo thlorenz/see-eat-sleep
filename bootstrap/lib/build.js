@@ -32,9 +32,12 @@ var build = module.exports = function (opts, cb) {
     });
   }
 
-  var stream = bfy
-    .require(opts.entry, { entry: true })
-    .bundle({ debug: opts.debug });
+  var entries = Array.isArray(opts.entry) ? opts.entry : [ opts.entry ];
+  entries.forEach(function (e) {
+    bfy.require(e, { entry: true });
+  });
+
+  var stream = bfy.bundle({ debug: opts.debug });
 
   // mold sourcemaps to get shorter paths in chrome
   // in the future we may replace these with an actual fullPath map file
