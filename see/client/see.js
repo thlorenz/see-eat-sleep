@@ -11,4 +11,4 @@ console.log('sourcing see');
 console.log('noncjs is same instance as core.noncjs', noncjs === core.noncjsThing);
 console.log('Whats that noncjs thing?\n >> ', core.noncjsThing());
 
-var mainView = new MainView({ el: $('#ses-see-main') });
+exports.mainView = new MainView({ el: $('#ses-see-main') });

@@ -3,13 +3,20 @@
 var $ = require('jquery');
 var assert = require('assert');
 var localBus = require('../../lib/local-bus');
-var SawView = require('../../views/saw');
+var see = require('../../see');
 
-describe('a test', function () {
-  var sawButton = $('#ses-see-main .ses-see-saw');
-  var sawView = new SawView(sawButton);
+describe('all views exist', function () {
 
-  it('!!1 is true', function () {
-    assert.equal(!!1, true);
+  it('has a main view', function () {
+    assert.ok(see.mainView);
   });
+
+  it('main view has saw view', function () {
+    assert.ok(see.mainView.sawView);
+  });
+
+  it('main view has sights view', function () {
+    assert.ok(see.mainView.sightsView);
+  });
+
 });
