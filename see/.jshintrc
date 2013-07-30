@@ -16,6 +16,9 @@
   "smarttabs": true,
   "strict": true,
   "globals": {
-    "define": true
+    "describe": true,
+    "it": true,
+    "before": true,
+    "beforeEach": true
   }
 }
