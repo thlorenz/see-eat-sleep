@@ -12,11 +12,13 @@ require('./server');
 
 var app = boot.devServer({
   build: {
-    entry: require.resolve('./client/see'),
+    entry: require.resolve('./client/test'),
     shims: shims
   },
   page:  {
-    index: path.join(dirs.templates, 'index.hbs'),
+    index: path.join(__dirname, 'client', 'test', 'index.hbs'),
     context: { title: 'see' }
   }
 });
+
+app.use('/node_modules', boot.express.static(__dirname + '/node_modules'));
