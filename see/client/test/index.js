@@ -10,7 +10,10 @@ mocha.reporter('html');
 require('../../client/see');
 
 // the test(s)
+require('./views/main');
 require('./views/saw');
+require('./views/sights');
+require('./views/integration-saw-sights');
 
 /* global mochaPhantomJS  */
 if (window.mochaPhantomJS) mochaPhantomJS.run();
