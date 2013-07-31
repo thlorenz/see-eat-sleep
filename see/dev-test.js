@@ -6,7 +6,6 @@ var dirs = require('./config/directories');
 var boot = require('ses-bootstrap');
 
 // init our own routes and partials, etc.
-// TODO: have routes dir with index to routes
 require('./server');
 
 boot.devServer({
