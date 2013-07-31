@@ -5,5 +5,7 @@
 var dirs = require('../config/directories');
 var boot = require('ses-bootstrap');
 
-boot.app.use('/ses-core-css', boot.express.static(dirs.css));
 boot.registerPartials(dirs.partials, 'ses-core-');
+
+boot.registerEndpoints(__dirname, 'middleware');
+boot.registerEndpoints(__dirname, 'routes');

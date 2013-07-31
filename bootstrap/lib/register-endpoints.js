@@ -15,7 +15,8 @@ var boot = require('../');
  */
 var go = module.exports = function (root, dir) {
   var modules = requireAll({
-    dirname: path.join(root, dir),
+    dirname     :  path.join(root, dir),
+    filter      :  /.+\.js$/,
     excludeDirs :  /^\.(git|svn)$/
   });
 
