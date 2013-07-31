@@ -8,5 +8,5 @@ require('ses-core');
 
 boot.registerPartials(dirs.partials, 'ses-see-');
 
-boot.initWithApp(__dirname, 'middleware');
-boot.initWithApp(__dirname, 'routes');
+boot.registerEndpoints(__dirname, 'middleware');
+boot.registerEndpoints(__dirname, 'routes');
