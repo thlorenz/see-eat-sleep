@@ -23,8 +23,7 @@
   "homepage": "https://github.com/thlorenz/see",
   "optionalDependencies": {},
   "dependencies": {
-    "hbsfy": "~0.1.5",
-    "require-all": "0.0.6"
+    "hbsfy": "~0.1.5"
   },
   "devDependencies": {
     "nodemon": "~0.7.8",
