@@ -13,7 +13,7 @@ var res = boot.devServer({
   build: {
     entry: require.resolve('./client/see'),
     shims: require('./config/shims'),
-    test:  { root: dirs.test }
+    test:  { root: dirs.clientTest }
   },
   page:  {
     index: path.join(__dirname, 'client', 'test', 'index.hbs'),
