@@ -21,12 +21,10 @@ function addTests (testopts, bfy, cb) {
     if (err) return cb(err);
 
     entries.files
-      .map(function (x) {
-        return x.fullPath;
-      })
       .forEach(function (e) {
-        bfy.require(e, { entry: true });
+        bfy.require(e.fullPath, { entry: true });
       });
+
     cb();
   });
 }
@@ -66,18 +64,16 @@ var build = module.exports = function (opts, cb) {
   var entries = Array.isArray(opts.entry) ? opts.entry : [ opts.entry ];
 
   opts.shims = opts.shims || {};
+  opts.shims.expose = opts.shims.expose || {};
 
   /* jshint laxbreak: true */
   var bfy = opts.shims.wrap
     ? shim(browserify(), opts.shims.wrap)
     : browserify();
 
-  var expose = opts.shims.expose;
-  if (expose) {
-    Object.keys(expose).forEach(function (k) {
-      bfy.require(expose[k], { expose: k });
-    });
-  }
+  Object.keys(opts.shims.expose).forEach(function (k) {
+    bfy.require(opts.shims.expose[k], { expose: k });
+  });
 
   entries.forEach(function (e) {
     bfy.require(e, { entry: true });
