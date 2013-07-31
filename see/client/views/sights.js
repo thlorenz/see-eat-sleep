@@ -1,7 +1,7 @@
 'use strict';
 
 var Backbone = require('backbone');
-var sightTemplate = require('../templates/partials/sight.hbs');
+var sightTemplate = require('../../templates/partials/sight.hbs');
 var localBus = require('../lib/local-bus');
 
 var sights = [
