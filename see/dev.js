@@ -5,18 +5,19 @@ var dirs = require('./config/directories');
 
 var boot = require('ses-bootstrap');
 
-var shims = require('./config/shims');
-
 // init our own routes and partials, etc.
 require('./server');
 
-var app = boot.devServer({
+boot.devServer({
   build: {
     entry: require.resolve('./client/see'),
-    shims: shims
+    shims: require('./config/shims'),
   },
   page:  {
     index: path.join(dirs.templates, 'index.hbs'),
     context: { title: 'see' }
+  },
+  server: {
+    port: process.env.PORT || 3000
   }
 });
