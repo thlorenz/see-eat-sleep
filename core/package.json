@@ -7,7 +7,9 @@
   "scripts": {
     "preinstall": "sh ./preinstall.sh",
     "postinstall": "npm dedupe",
-    "start": "nodemon -e js,css,hbs,json dev.js"
+    "start": "nodemon -e js,css,hbs,json dev.js",
+    "start-test": "PORT=3001 nodemon -e js,css,hbs,json dev-test.js",
+    "test": "PORT=3002 node dev-test --phantomjs"
   },
   "repository": {
     "type": "git",
