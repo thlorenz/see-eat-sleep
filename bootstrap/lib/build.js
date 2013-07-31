@@ -11,12 +11,29 @@ var concatStream = require('concat-stream');
 
 var root = path.join(__dirname, '..', '..');
 
+/**
+ *
+ *
+ * @name exports
+ * @function
+ * @param opts {Object} with the following properties:
+ *  - entry (required) the full path to the entry point into the client app or an {Array} of full paths if there are multiple entries
+ *  - shims (optional) an {Object} containing shims with the following properties:
+ *      { wrap: {Object} - files that need to be wrapped with browserify-shim to make them comonjs compatible
+ *        expose: {Object} - files that expose a window property under an alias so they can be required under that alias
+ *      }
+ *     see ./config/shims in the core module for more information about shims
+ * @param cb {Function} (optional) (err, bundle) called with the bundle string
+ * @return {Stream} the bundle stream to be consumed unless a callback was supplied
+ */
 var build = module.exports = function (opts, cb) {
   if (!opts || !opts.entry)
-    throw new Error('Need opts that have at least the entry path');
+    throw new Error('Need opts that have at least the entry path(s)');
 
   if (cb && typeof cb !== 'function')
     throw new Error('Second arg needs to be a callback function');
+
+  var entries = Array.isArray(opts.entry) ? opts.entry : [ opts.entry ];
 
   opts.shims = opts.shims || {};
 
@@ -32,7 +49,6 @@ var build = module.exports = function (opts, cb) {
     });
   }
 
-  var entries = Array.isArray(opts.entry) ? opts.entry : [ opts.entry ];
   entries.forEach(function (e) {
     bfy.require(e, { entry: true });
   });
