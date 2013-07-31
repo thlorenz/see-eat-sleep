@@ -2,17 +2,44 @@
 
 'use strict';
 
-var browserify = require('browserify');
-var shim = require('browserify-shim');
-var path = require('path');
-var fs = require('fs');
-var mold = require('mold-source-map');
-var concatStream = require('concat-stream');
+var browserify   =  require('browserify');
+var shim         =  require('browserify-shim');
+var path         =  require('path');
+var fs           =  require('fs');
+var mold         =  require('mold-source-map');
+var PassThrough  =  require('stream').PassThrough;
+var concatStream =  require('concat-stream');
+var readdirp     =  require('readdirp');
 
 var root = path.join(__dirname, '..', '..');
 
+function addTests (testopts, bfy, cb) {
+  if (!testopts) return setImmediate(cb);
+  testopts.fileFilter = testopts.fileFilter || '*.js';
+
+  readdirp(testopts, function (err, entries) {
+    if (err) return cb(err);
+
+    entries.files
+      .map(function (x) {
+        return x.fullPath;
+      })
+      .forEach(function (e) {
+        bfy.require(e, { entry: true });
+      });
+    cb();
+  });
+}
+
+function bufferNcallback(stream, cb) {
+  return stream
+    .on('error', cb)
+    .pipe(concatStream(function (res) { cb(null, res); }));
+}
+
 /**
- *
+ * Builds the bundle according to the supplied options and pipes the resulting string into the returned stream.
+ * If a callback is supplied it will be called with the entire bundle string once it is completely built.
  *
  * @name exports
  * @function
@@ -23,8 +50,10 @@ var root = path.join(__dirname, '..', '..');
  *        expose: {Object} - files that expose a window property under an alias so they can be required under that alias
  *      }
  *     see ./config/shims in the core module for more information about shims
+ *  - test (optional) a readdirp options {Object} that instructs the build to add tests
+/*    Example: { root: 'full/path/to/the/test/dir', fileFilter: '*.js', directoryFilter: [ '!ignore_this_dir' ] }
  * @param cb {Function} (optional) (err, bundle) called with the bundle string
- * @return {Stream} the bundle stream to be consumed unless a callback was supplied
+ * @return {Stream} the bundle stream to be consumed
  */
 var build = module.exports = function (opts, cb) {
   if (!opts || !opts.entry)
@@ -33,6 +62,7 @@ var build = module.exports = function (opts, cb) {
   if (cb && typeof cb !== 'function')
     throw new Error('Second arg needs to be a callback function');
 
+  var passThru = new PassThrough();
   var entries = Array.isArray(opts.entry) ? opts.entry : [ opts.entry ];
 
   opts.shims = opts.shims || {};
@@ -53,18 +83,21 @@ var build = module.exports = function (opts, cb) {
     bfy.require(e, { entry: true });
   });
 
-  var stream = bfy.bundle({ debug: opts.debug });
+  addTests(opts.test, bfy, function (err) {
+    // abort build immediately
+    if (err) throw err;
 
-  // mold sourcemaps to get shorter paths in chrome
-  // in the future we may replace these with an actual fullPath map file
-  // especially if in the browser editing is desired
-  if (opts.debug) stream = stream.pipe(mold.transformSourcesRelativeTo(root));
+    var bfyStream = bfy.bundle({ debug: opts.debug });
 
-  function bufferNcallback() {
-    return stream
-      .on('error', cb)
-      .pipe(concatStream(function (res) { cb(null, res); }));
-  }
+    // mold sourcemaps to get shorter paths in chrome
+    // in the future we may replace these with an actual fullPath map file
+    // especially if in the browser editing is desired
+    if (opts.debug) bfyStream = bfyStream.pipe(mold.transformSourcesRelativeTo(root));
 
-  return cb ? bufferNcallback() : stream;
+    bfyStream.pipe(passThru);
+
+    if (cb) bufferNcallback(passThru, cb);
+  });
+
+  return passThru;
 };

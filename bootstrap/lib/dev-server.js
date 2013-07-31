@@ -1,13 +1,13 @@
 'use strict';
 
-var path       =  require('path');
-var fs         =  require('fs');
-var Handlebars =  require('handlebars');
-var express    =  require('express');
+var path          =  require('path');
+var fs            =  require('fs');
+var Handlebars    =  require('handlebars');
+var express       =  require('express');
+var hyperwatch    =  require('hyperwatch');
 
 var build =  require('./build');
 var app   =  require('./app');
-var hyperwatch = require('hyperwatch');
 
 var go = module.exports = function (opts) {
   if (!opts.build) throw new Error('need to have build config on opts');
