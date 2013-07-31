@@ -24,6 +24,4 @@ var res = boot.devServer({
   }
 });
 
-res.app.use('/node_modules', boot.express.static(__dirname + '/node_modules'));
-
 if (~process.argv.indexOf('--phantomjs')) boot.launchPhantomJS(res.server);

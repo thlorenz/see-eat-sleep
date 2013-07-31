@@ -47,6 +47,12 @@ var go = module.exports = function (opts) {
     console.log('Listening on http://localhost:%d in debug mode', port);
   });
 
+  // provide test support if needed
+  if (opts.build.test) {
+    app.use('/mocha', express.static(path.dirname(require.resolve('mocha'))));
+  }
+
+
   hyperwatch(server);
 
   return { app: app, server: server };
