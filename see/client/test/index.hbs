@@ -1,27 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--TODO: make mocha support partial in bootstrap or core-->
-  <link rel="stylesheet" href="mocha/mocha.css" type="text/css" media="screen" charset="utf-8">
-  <script src="mocha/mocha.js" type="application/javascript"></script>
-  <style type="text/css">
-    #tested-app {
-      width: 50%;
-      float: left;
-      border: 1px solid #111;
-      padding: 5px;
-    }
-  </style>
+  {{> ses-bootstrap-head-test-support }}
   {{> ses-core-head }}
   {{> ses-see-head }}
 </head>
 <body>
-  <div id="tested-app">
-    {{> ses-core-header }}
-    {{> ses-see-main }}
-  </div>
-  <!-- TODO: this should be added via javascript -->
-  <div id="mocha" style="width: 40%;float:left"></div>
+  {{> ses-core-header }}
+  {{> ses-see-main }}
 
   {{> ses-core-scripts-body-js }}
 </body>

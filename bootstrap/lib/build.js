@@ -20,6 +20,8 @@ function addTests (testopts, bfy, cb) {
   readdirp(testopts, function (err, entries) {
     if (err) return cb(err);
 
+    bfy.require(require.resolve('./run-tests'), { entry: true });
+
     entries.files
       .forEach(function (e) {
         bfy.require(e.fullPath, { entry: true });

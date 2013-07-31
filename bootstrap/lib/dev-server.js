@@ -1,10 +1,12 @@
 'use strict';
 
-var path          =  require('path');
-var fs            =  require('fs');
-var Handlebars    =  require('handlebars');
-var express       =  require('express');
-var hyperwatch    =  require('hyperwatch');
+var path             =  require('path');
+var fs               =  require('fs');
+var Handlebars       =  require('handlebars');
+var express          =  require('express');
+var hyperwatch       =  require('hyperwatch');
+var dirs             =  require('../config/directories');
+var registerPartials =  require('./register-partials');
 
 var build =  require('./build');
 var app   =  require('./app');
@@ -50,6 +52,8 @@ var go = module.exports = function (opts) {
   // provide test support if needed
   if (opts.build.test) {
     app.use('/mocha', express.static(path.dirname(require.resolve('mocha'))));
+    // at this point we only have a partial here that is needed to support tests
+    registerPartials(dirs.partials, 'ses-bootstrap-');
   }
 
 

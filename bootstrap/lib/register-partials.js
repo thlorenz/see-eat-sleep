@@ -26,6 +26,6 @@ var go = module.exports = function (partialsDir, prefix) {
 
 // Test
 if (!module.parent) {
-  go(__dirname + '/../../client/templates/partials');
+  go(__dirname + '/../templates/partials', 'ses-bootstrap-');
   console.log(Handlebars.partials);
 }
