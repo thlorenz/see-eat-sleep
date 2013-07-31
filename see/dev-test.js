@@ -23,5 +23,3 @@ var res = boot.devServer({
     port: process.env.PORT || 3000
   }
 });
-
-if (~process.argv.indexOf('--phantomjs')) boot.launchPhantomJS(res.server);
