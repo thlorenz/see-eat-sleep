@@ -12,10 +12,11 @@ boot.devServer({
   build: {
     entry: require.resolve('./client/core'),
     shims: require('./config/shims'),
+    test:  { root: dirs.clientTest }
   },
   page:  {
-    index: path.join(dirs.templates, 'index.hbs'),
-    context: { title: 'core' }
+    index: path.join(dirs.templates, 'index-test.hbs'),
+    context: { title: 'core-test' }
   },
   server: {
     port: process.env.PORT || 3000
