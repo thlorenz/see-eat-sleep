@@ -13,7 +13,7 @@ boot.devServer({
     entry: require.resolve('./client/core'),
     shims: require('./config/shims'),
   },
-  server: {
+  servers: {
     pages: {
       index: path.join(dirs.templates, 'index.hbs'),
       context: { title: 'core' },

@@ -13,7 +13,7 @@ var app = boot.devServer({
     entry: require.resolve('./client/app'),
     shims: require('./config/shims')
   },
-  server: {
+  servers: {
     pages: {
       index: path.join(dirs.templates, 'index.hbs'),
       context: { title: 'see-eat-sleep' },

@@ -14,7 +14,7 @@ var app = boot.devServer({
     shims: require('./config/shims'),
     test:  { root: dirs.clientTest }
   },
-  server: {
+  servers: {
     pages: {
       port: process.env.PAGES_PORT || 3000,
       index: path.join(dirs.templates, 'index-test.hbs'),
