@@ -6,7 +6,7 @@ var dirs = require('./config/directories');
 var boot = require('ses-bootstrap');
 
 // intialize main app which in turn initializes all sub apps
-require('./server');
+require('./servers');
 
 var app = boot.devServer({
   build: {

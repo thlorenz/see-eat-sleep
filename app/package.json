@@ -2,7 +2,7 @@
   "name": "ses-main",
   "version": "0.0.0",
   "description": "the main app that brings all sub apps together",
-  "main": "./server/index.js",
+  "main": "./servers/index.js",
   "browser": "./client/main.js",
   "scripts": {
     "preinstall": "sh ./preinstall.sh",

@@ -2,7 +2,7 @@
   "name": "core",
   "version": "0.0.0",
   "description": "The core app which is used by all the sub apps.",
-  "main": "./server/index.js",
+  "main": "./servers/index.js",
   "browser": "./client/core.js",
   "scripts": {
     "preinstall": "sh ./preinstall.sh",
