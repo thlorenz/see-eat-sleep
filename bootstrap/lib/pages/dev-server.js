@@ -5,6 +5,8 @@ var fs               =  require('fs');
 var Handlebars       =  require('handlebars');
 var express          =  require('express');
 var hyperwatch       =  require('hyperwatch');
+var logRequest       =  require('log-request');
+
 var registerPartials =  require('./register-partials');
 var dirs             =  require('../../config/directories');
 var launchPhantomJS  =  require('./../launch-phantomjs');
@@ -13,7 +15,6 @@ var build =  require('./../build');
 var app   =  require('./app');
 
 var go = module.exports = function (pagesOpts, buildOpts) {
-  app.use(require('log-request'));
   app.set('view engine', 'hbs');
 
   // serve the index file given to us by the app
@@ -39,9 +40,11 @@ var go = module.exports = function (pagesOpts, buildOpts) {
   });
 
   var server = app.listen(pagesOpts.port);
-  server.on('listening', function () {
-    console.log('Listening on http://localhost:%d in debug mode', pagesOpts.port);
-  });
+  server
+    .on('listening', function () {
+      console.log('Pages server listening on http://localhost:%d in debug mode', pagesOpts.port);
+    })
+    .on('request', logRequest);
 
   // provide test support if needed
   if (buildOpts.test) {

@@ -25,7 +25,8 @@
     "phantomjs": "~1.9.1-0",
     "readdirp": "~0.3.1",
     "mocha": "~1.12.0",
-    "require-all": "0.0.6"
+    "require-all": "0.0.6",
+    "restify": "~2.6.0"
   },
   "devDependencies": {},
   "keywords": [],
