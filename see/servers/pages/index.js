@@ -1,7 +1,7 @@
 'use strict';
 
 var boot = require('ses-bootstrap');
-var dirs = require('../config/directories');
+var dirs = require('../../config/directories');
 
 // init core partials, routes, etc.
 require('ses-core');

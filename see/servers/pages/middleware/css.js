@@ -1,6 +1,6 @@
 'use strict';
 
-var dirs = require('../../config/directories');
+var dirs = require('../../../config/directories');
 
 var go = module.exports = function (app, express) {
   app.use('/ses-see-css', express.static(dirs.css));
