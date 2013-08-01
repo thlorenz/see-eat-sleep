@@ -5,8 +5,8 @@ var requireAll = require('require-all');
 var boot = require('../..');
 
 /**
- * Inits all modules found in the root/dir with the pages app and express.
- * Each module needs to export a function that takes (app, express) as parameters.
+ * Inits all modules found in the root/dir with the API app and restify.
+ * Each module needs to export a function that takes (app, restify) as parameters.
  *
  * @name exports
  * @function
@@ -23,7 +23,7 @@ var go = module.exports = function (root, dir) {
   Object.keys(modules)
     .forEach(function (k) {
       var init = modules[k];
-      init(boot.pages.app, boot.express);
+      init(boot.api.app, boot.restify);
     });
 };
 
