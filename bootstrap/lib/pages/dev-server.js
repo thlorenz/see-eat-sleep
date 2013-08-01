@@ -5,11 +5,11 @@ var fs               =  require('fs');
 var Handlebars       =  require('handlebars');
 var express          =  require('express');
 var hyperwatch       =  require('hyperwatch');
-var dirs             =  require('../config/directories');
 var registerPartials =  require('./register-partials');
-var launchPhantomJS  =  require('./launch-phantomjs');
+var dirs             =  require('../../config/directories');
+var launchPhantomJS  =  require('./../launch-phantomjs');
 
-var build =  require('./build');
+var build =  require('./../build');
 var app   =  require('./app');
 
 var go = module.exports = function (pagesOpts, buildOpts) {

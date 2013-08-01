@@ -2,10 +2,10 @@
 
 // This module is required by a sub app at which point it initializes itself
 
+var pages = require('ses-bootstrap').pages;
 var dirs = require('../../config/directories');
-var boot = require('ses-bootstrap');
 
-boot.registerPartials(dirs.partials, 'ses-core-');
+pages.registerPartials(dirs.partials, 'ses-core-');
 
-boot.registerEndpoints(__dirname, 'middleware');
-boot.registerEndpoints(__dirname, 'routes');
+pages.registerEndpoints(__dirname, 'middleware');
+pages.registerEndpoints(__dirname, 'routes');

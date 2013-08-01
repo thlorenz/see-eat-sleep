@@ -1,6 +1,6 @@
 'use strict';
 
-var pagesServer = require('./dev-pages-server');
+var pagesServer = require('./pages/dev-server');
 
 var go = module.exports = function (opts) {
   if (!opts.build) throw new Error('need to have build config on opts');

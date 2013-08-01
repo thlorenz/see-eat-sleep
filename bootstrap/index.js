@@ -3,9 +3,12 @@
 exports.Handlebars       =  require('handlebars');
 exports.express          =  require('express');
 
-exports.app               =  require('./lib/app');
 exports.devServer         =  require('./lib/dev-server');
-exports.registerPartials  =  require('./lib/register-partials');
-exports.registerEndpoints =  require('./lib/register-endpoints');
 exports.combineShims      =  require('./lib/combine-shims');
 exports.launchPhantomJS   =  require('./lib/launch-phantomjs');
+
+exports.pages = {
+  app               :  require('./lib/pages/app'),
+  registerPartials  :  require('./lib/pages/register-partials'),
+  registerEndpoints :  require('./lib/pages/register-endpoints')
+};

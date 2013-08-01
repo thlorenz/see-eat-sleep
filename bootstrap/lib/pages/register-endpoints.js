@@ -2,7 +2,7 @@
 
 var path = require('path');
 var requireAll = require('require-all');
-var boot = require('../');
+var boot = require('../..');
 
 /**
  * Inits all modules found in the root/dir with the app and express.
@@ -23,7 +23,7 @@ var go = module.exports = function (root, dir) {
   Object.keys(modules)
     .forEach(function (k) {
       var init = modules[k];
-      init(boot.app, boot.express);
+      init(boot.pages.app, boot.express);
     });
 };
 
