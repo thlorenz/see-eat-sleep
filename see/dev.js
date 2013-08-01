@@ -13,11 +13,14 @@ boot.devServer({
     entry: require.resolve('./client/see'),
     shims: require('./config/shims'),
   },
-  page:  {
-    index: path.join(dirs.templates, 'index.hbs'),
-    context: { title: 'see' }
-  },
   server: {
-    port: process.env.PORT || 3000
+    pages: {
+      index: path.join(dirs.templates, 'index.hbs'),
+      context: { title: 'see' },
+      port: process.env.PAGES_PORT || 3000
+    },
+    api: {
+      port: process.env.API_PORT || 4000
+    }
   }
 });

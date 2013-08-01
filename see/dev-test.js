@@ -14,11 +14,14 @@ boot.devServer({
     shims: require('./config/shims'),
     test:  { root: dirs.clientTest }
   },
-  page:  {
-    index: path.join(dirs.templates, 'index-test.hbs'),
-    context: { title: 'see-test' }
-  },
   server: {
-    port: process.env.PORT || 3000
+    pages: {
+      port: process.env.PAGES_PORT || 3000,
+      index: path.join(dirs.templates, 'index-test.hbs'),
+      context: { title: 'see-test' }
+    },
+    api: {
+      port: process.env.API_PORT || 4000
+    }
   }
 });
