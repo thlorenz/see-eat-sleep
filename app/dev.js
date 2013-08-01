@@ -13,11 +13,14 @@ var app = boot.devServer({
     entry: require.resolve('./client/app'),
     shims: require('./config/shims')
   },
-  page:  {
-    index: path.join(dirs.templates, 'index.hbs'),
-    context: { title: 'see-eat-sleep' }
-  },
   server: {
-    port: process.env.PORT || 3000
+    pages: {
+      index: path.join(dirs.templates, 'index.hbs'),
+      context: { title: 'see-eat-sleep' },
+      port: process.env.PAGES_PORT || 3000
+    },
+    api: {
+      port: process.env.API_PORT || 4000
+    }
   }
 });
