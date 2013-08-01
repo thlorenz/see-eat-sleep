@@ -5,8 +5,8 @@ var dirs = require('./config/directories');
 
 var boot = require('ses-bootstrap');
 
-// init our own routes and partials, etc.
-require('./server');
+// init both the pages and the api server which will register parts of this sub app like partials and routes
+require('./servers');
 
 boot.devServer({
   build: {
