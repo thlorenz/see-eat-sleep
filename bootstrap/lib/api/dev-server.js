@@ -1,14 +1,10 @@
 'use strict';
 
-var path =  require('path');
-var fs   =  require('fs');
-var dirs =  require('../../config/directories');
 var logRequest = require('log-request');
 
-var app   =  require('./app');
+var app = require('./app');
 
 var go = module.exports = function (opts) {
-
 
   app.get('/', function (req, res) {
     res.header('Content-Type', 'application/json');
