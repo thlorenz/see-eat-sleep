@@ -12,3 +12,7 @@ exports.pages = {
   registerPartials  :  require('./lib/pages/register-partials'),
   registerEndpoints :  require('./lib/pages/register-endpoints')
 };
+
+exports.api = {
+  app : require('./lib/api/app')
+};
