@@ -3,3 +3,6 @@ require('ses-core');
 
 // initalize pages server
 require('./pages');
+
+// initalize api server
+require('./api');
