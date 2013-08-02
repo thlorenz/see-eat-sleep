@@ -3,15 +3,19 @@
 var $ = require('jquery');
 var assert = require('assert');
 var see = require('../../see');
+var localBus = require('../../lib/local-bus');
 
 describe('integration saw view and sights view', function () {
   var sightsView;
   var sawView;
 
-  before(function () {
+  before(function (done) {
     sightsView = see.mainView.sightsView;
     sawView = see.mainView.sawView;
     sightsView.$el.empty();
+
+    if (sightsView.ready) done();
+    else localBus.on('sights:view:initialized', done);
   });
 
   it('sights view has no images initially', function () {

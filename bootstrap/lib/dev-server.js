@@ -12,6 +12,7 @@ var go = module.exports = function (opts, cb) {
   if (typeof opts.build.debug === 'undefined') opts.build.debug = true;
   opts.servers.pages.port = opts.servers.pages.port || 3000;
   opts.servers.api.port = opts.servers.api.port || 4000;
+  opts.servers.api.host = opts.servers.api.host || 'http://localhost';
 
   // stand up api server, then pages server
   var api = apiServer(opts.servers.api);

@@ -14,7 +14,9 @@ var build =  require('./../build');
 var app   =  require('./app');
 
 var go = module.exports = function (pagesOpts, buildOpts) {
+
   app.use(express.logger('dev'));
+
   app.set('view engine', 'hbs');
 
   // serve the index file given to us by the app

@@ -8,9 +8,12 @@ var see = require('../../see');
 describe('sights view', function () {
   var sightsView;
 
-  before(function () {
+  before(function (done) {
+
     sightsView = see.mainView.sightsView;
     sightsView.$el.empty();
+    if (sightsView.ready) done();
+    else localBus.on('sights:view:initialized', done);
   });
 
   it('has no images initially', function () {

@@ -1,10 +1,13 @@
 'use strict';
 
-var sights = require('../data/sights');
+var sightsData = require('../data/sights');
+var restify = require('ses-bootstrap').restify;
 
 var go = module.exports = function (app) {
-  app.get('/data/sights', function (req, res) {
+  app.use(restify.CORS());
+
+  app.get('/data/ses-see/sights', function (req, res) {
     res.header('Content-Type', 'application/json');
-    res.send(sights);
+    res.send({ images: sightsData });
   });
 };

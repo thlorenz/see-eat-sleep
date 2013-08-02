@@ -1,27 +1,31 @@
 'use strict';
 
 var Backbone = require('backbone');
+var SightsModel = require('../models/sights');
 var sightTemplate = require('../../templates/partials/sight.hbs');
 var localBus = require('../lib/local-bus');
 
-// TODO: get sights via backbone model
-
-var sights = [
-  'http://upload.wikimedia.org/wikipedia/commons/a/a0/Potsdam_St._Nikolaikirche_2005.jpg',
-  'http://www.europeinsideout.com/wp-content/uploads/2012/03/berlin-brandenburger_tor-300x199.jpg'
-];
-
-var sightsIdx = 0;
-
 var SightsView = module.exports = Backbone.View.extend({
 
+  imgIdx: 0,
+  ready: false,
+
   initialize: function () {
-    localBus.on('saw', this.addSight, this);
+    var view = this;
+    new SightsModel().fetch({
+      success: function (sights) {
+        view.sights = sights;
+        view.ready = true;
+        localBus.on('saw', view.addSight, view);
+        localBus.trigger('sights:view:initialized');
+      }
+    });
   },
 
   addSight: function () {
-    var url = sights[sightsIdx++];
-    if (!url) url = sights[sightsIdx = 0];
+    var images = this.sights.get('images');
+    var url = images[this.imgIdx++];
+    if (!url) url = images[this.imgIdx = 0];
     var html = sightTemplate({ url: url});
     this.$el.append(html);
   }
