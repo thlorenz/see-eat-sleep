@@ -13,7 +13,7 @@ describe('sights view', function () {
     sightsView = see.mainView.sightsView;
     sightsView.$el.empty();
     if (sightsView.ready) done();
-    else localBus.on('sights:view:initialized', done);
+    else localBus.on('sights:view:ready', done);
   });
 
   it('has no images initially', function () {

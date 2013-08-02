@@ -15,7 +15,7 @@ describe('integration saw view and sights view', function () {
     sightsView.$el.empty();
 
     if (sightsView.ready) done();
-    else localBus.on('sights:view:initialized', done);
+    else localBus.on('sights:view:ready', done);
   });
 
   it('sights view has no images initially', function () {

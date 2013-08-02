@@ -17,7 +17,7 @@ var SightsView = module.exports = Backbone.View.extend({
         view.sights = sights;
         view.ready = true;
         localBus.on('saw', view.addSight, view);
-        localBus.trigger('sights:view:initialized');
+        localBus.trigger('sights:view:ready');
       }
     });
   },
