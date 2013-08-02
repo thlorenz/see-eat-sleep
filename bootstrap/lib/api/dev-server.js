@@ -5,7 +5,13 @@ var logRequest = require('log-request');
 var restify = require('../../').restify;
 var app = require('./app');
 
-// this needs to be added before any routes so we do it right away
+// TODO:
+// 1. limit to specific origin, headers and methods
+// 2. feature apps should not add middleware/plugins
+//  - better solution may be to only allow passing paths to dirs to serve static data from
+//  - we can then control order of plugins here
+//  - also the sub feature shouldn't decide when to add routes to an app
+//  - instead register endpoints should just store that registration request somewhere so routes can be added in a more controlled manner
 app.use(restify.CORS());
 
 var go = module.exports = function (apiOpts) {
