@@ -3,7 +3,7 @@
 var SawView = require('./saw');
 var SightsView = require('./sights');
 var Backbone = require('backbone');
-var $ = require('jquery');
+var $ = require('ses-core').jquery;
 
 module.exports = Backbone.View.extend({
   initialize: function () {

@@ -13,8 +13,11 @@
     "preinstall": "sh ./preinstall.sh",
     "postinstall": "npm dedupe",
     "start": "nodemon -e js,css,hbs,json dev.js",
-    "start-test": "PAGES_PORT=3001 nodemon -e js,css,hbs,json dev-test.js",
-    "test": "PAGES_PORT=3002 node dev-test --phantomjs"
+    "start-test-old": "PAGES_PORT=3001 nodemon -e js,css,hbs,json dev-test.js",
+    "test-old": "PAGES_PORT=3002 node dev-test --phantomjs",
+    "test": "/Users/thlorenz/dev/js/projects/_forks/zuul/bin/zuul ./client/test/views/saw.js",
+    "start-test": "/Users/thlorenz/dev/js/projects/_forks/zuul/bin/zuul --server 3000 ./client/test/views/saw.js"
+
   },
   "repository": {
     "type": "git",
@@ -23,7 +26,9 @@
   "homepage": "https://github.com/thlorenz/see",
   "optionalDependencies": {},
   "dependencies": {
-    "hbsfy": "~0.1.5"
+    "hbsfy": "~0.1.5",
+    "backbone": "~1.0.0",
+    "underscore": "~1.5.1"
   },
   "devDependencies": {
     "nodemon": "~0.7.8",

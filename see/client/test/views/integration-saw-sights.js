@@ -1,6 +1,6 @@
 'use strict';
 
-var $ = require('jquery');
+var $ = require('ses-core').jquery;
 var assert = require('assert');
 var see = require('../../see');
 var localBus = require('../../lib/local-bus');
