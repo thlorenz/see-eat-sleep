@@ -1,5 +1,7 @@
 'use strict';
 
+//var sinon = require('sinon');
+
 var $ = require('ses-core').jquery;
 var assert = require('assert');
 var localBus = require('../../lib/local-bus');

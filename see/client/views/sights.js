@@ -36,7 +36,7 @@ var SightsView = module.exports = Backbone.View.extend({
   },
 
   addSight: function () {
-    var images = this.sights.get('images');
+    var images = this.sights;// this.sights.get('images');
     var url = images[this.imgIdx++];
     if (!url) url = images[this.imgIdx = 0];
     var html = sightTemplate({ url: url});

@@ -15,9 +15,8 @@
     "start": "nodemon -e js,css,hbs,json dev.js",
     "start-test-old": "PAGES_PORT=3001 nodemon -e js,css,hbs,json dev-test.js",
     "test-old": "PAGES_PORT=3002 node dev-test --phantomjs",
-    "test": "/Users/thlorenz/dev/js/projects/_forks/zuul/bin/zuul ./client/test/views/saw.js",
-    "start-test": "/Users/thlorenz/dev/js/projects/_forks/zuul/bin/zuul --server 3000 ./client/test/views/saw.js"
-
+    "test": "/Users/thlorenz/dev/js/projects/_contrib/zuul/bin/zuul client/test/views --config ./zuul-config.js",
+    "start-test": "/Users/thlorenz/dev/js/projects/_contrib/zuul/bin zuul client/test/views --config ./zuul-config.js"
   },
   "repository": {
     "type": "git",
@@ -28,11 +27,13 @@
   "dependencies": {
     "hbsfy": "~0.1.5",
     "backbone": "~1.0.0",
-    "underscore": "~1.5.1"
+    "underscore": "~1.5.1",
+    "mocha": "~1.12.0"
   },
   "devDependencies": {
     "nodemon": "~0.7.8",
-    "mocha": "~1.12.0"
+    "mocha": "~1.12.0",
+    "sinon": "~1.7.3"
   },
   "keywords": [],
   "author": {
