@@ -3,8 +3,8 @@
 var $ = require('ses-core').jquery;
 var assert = require('assert');
 var localBus = require('../../lib/local-bus');
+var sinon = require('sinon');
 var see;
-var server;
 
 var mockSights = [
   'http://upload.wikimedia.org/wikipedia/commons/a/a0/Potsdam_St._Nikolaikirche_2005.jpg',
@@ -13,6 +13,7 @@ var mockSights = [
 
 describe('sights view', function () {
   var sightsView;
+  var server;
 
   beforeEach(function (done) {
     server = sinon.fakeServer.create();
