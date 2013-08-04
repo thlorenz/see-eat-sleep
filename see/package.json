@@ -33,7 +33,7 @@
     "nodemon": "~0.7.8",
     "mocha": "~1.12.0",
     "sinon": "~1.7.3",
-    "zuul": "git://github.com/shtylman/zuul#config",
+    "zuul": "git://github.com/shtylman/zuul",
     "browserify": "~2.26.0"
   },
   "keywords": [],
