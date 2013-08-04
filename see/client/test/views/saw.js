@@ -4,12 +4,13 @@ var $ = require('ses-core').jquery;
 var assert = require('assert');
 var localBus = require('../../lib/local-bus');
 var globalBus = require('ses-core').globalBus;
-var see = require('../../see');
+var SawView = require('../../views/saw');
 
 describe('saw view', function () {
 
   describe('when I click the saw button', function () {
-    var sawView, localSaw, globalSaw, server;
+    var sawView, localSaw, globalSaw;
+    var clazz = 'ses-see-saw';
 
     before(function () {
       localSaw = false;
@@ -22,21 +23,15 @@ describe('saw view', function () {
         globalSaw = true;
       });
 
-      server = sinon.fakeServer.create();
-      server.respondWith(
-        'GET', '/data/ses-see/sights',
-        [ 200, { 'Content-Type': 'application/json' }, JSON.stringify({ images: [] }) ]
-      );
+      $('body').append($('<input type="button">').addClass(clazz));
 
-      var mainView = see.init();
-      server.respond();
-
-      sawView = mainView.sawView;
+      sawView = new SawView({ el: $('.' + clazz) });
       sawView.$el.trigger('click');
+      
     });
 
     after(function () {
-      server.restore();
+      $('.' + clazz).remove();
     });
 
     it('tells the local bus that the user saw', function () {

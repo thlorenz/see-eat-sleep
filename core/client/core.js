@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('sourcing core');
-
 var jquery = require('../vendor/jquery');
 var Backbone = require('backbone');
 var _ = require('underscore');

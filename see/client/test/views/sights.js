@@ -3,7 +3,7 @@
 var $ = require('ses-core').jquery;
 var assert = require('assert');
 var localBus = require('../../lib/local-bus');
-var see = require('../../see');
+var SightsView = require('../../views/sights');
 
 var mockSights = [
   'http://upload.wikimedia.org/wikipedia/commons/a/a0/Potsdam_St._Nikolaikirche_2005.jpg',
@@ -13,24 +13,24 @@ var mockSights = [
 describe('sights view', function () {
   var sightsView;
   var server;
+  var clazz = 'ses-see-sights';
 
   before(function () {
+    $('body').append($('<ul>').addClass(clazz));
+
     server = sinon.fakeServer.create();
     server.respondWith(
       'GET', '/data/ses-see/sights',
       [ 200, { 'Content-Type': 'application/json' }, JSON.stringify({ images: mockSights }) ]
     );
 
-    var mainView = see.init();
+    sightsView = new SightsView({ el: $('.' + clazz) });
 
     server.respond();
-
-    sightsView = mainView.sightsView;
-    sightsView.$el.empty();
   });
 
   after(function () {
-    server.restore();
+    $('.' + clazz).remove();
   });
 
   it('has no images initially', function () {
