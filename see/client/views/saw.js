@@ -13,11 +13,6 @@ var SawView = module.exports = Backbone.View.extend({
   onclicked: function () {
     localBus.trigger('saw');
     globalBus.trigger('ses-see-saw');
-  },
-
-  initialize: function () {
-  },
-
-  reset: function(){
   }
+
 });

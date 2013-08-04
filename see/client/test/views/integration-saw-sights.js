@@ -3,7 +3,8 @@
 var $ = require('ses-core').jquery;
 var assert = require('assert');
 var localBus = require('../../lib/local-bus');
-var see = require('../../see');
+var SawView = require('../../views/saw');
+var SightsView = require('../../views/sights');
 
 var mockSights = [
   'http://upload.wikimedia.org/wikipedia/commons/a/a0/Potsdam_St._Nikolaikirche_2005.jpg',
@@ -11,27 +12,29 @@ var mockSights = [
 ];
 
 describe('integration saw view and sights view', function () {
-  var sightsView;
-  var sawView;
-  var server;
+  var sightsView, sawView, server;
+  var clazzSaw = 'ses-see-saw';
+  var clazzSights = 'ses-see-sights';
 
   before(function () {
+    $('body').append($('<input type="button">').addClass(clazzSaw));
+    sawView = new SawView({ el: $('.' + clazzSaw) });
+
+    $('body').append($('<ul>').addClass(clazzSights));
+
     server = sinon.fakeServer.create();
     server.respondWith(
       'GET', '/data/ses-see/sights',
       [ 200, { 'Content-Type': 'application/json' }, JSON.stringify({ images: mockSights }) ]
     );
 
-    var mainView = see.init();
+    sightsView = new SightsView({ el: $('.' + clazzSights) });
     server.respond();
-
-    sightsView = mainView.sightsView;
-    sawView = mainView.sawView;
-    sightsView.$el.empty();
   });
 
   after(function () {
-    server.restore();
+    $('.' + clazzSaw).remove();
+    $('.' + clazzSights).remove();
   });
 
   it('sights view has no images initially', function () {
