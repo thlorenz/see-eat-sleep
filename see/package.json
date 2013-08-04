@@ -16,7 +16,7 @@
     "start-test-old": "PAGES_PORT=3001 nodemon -e js,css,hbs,json dev-test.js",
     "test-old": "PAGES_PORT=3002 node dev-test --phantomjs",
     "test": "zuul client/test/spikes/ --config ./zuul-config.js",
-    "start-test": "zuul client/test/spikes/ --server 3000 --config ./zuul-config.js"
+    "start-test": "zuul client/test/spikes/ --rebundle --server 3000 --config ./zuul-config.js"
   },
   "repository": {
     "type": "git",

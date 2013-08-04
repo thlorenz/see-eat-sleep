@@ -2,20 +2,36 @@
 
 var $ = require('ses-core').jquery;
 var assert = require('assert');
-var see = require('../../see');
 var localBus = require('../../lib/local-bus');
+var see = require('../../see');
+
+var mockSights = [
+  'http://upload.wikimedia.org/wikipedia/commons/a/a0/Potsdam_St._Nikolaikirche_2005.jpg',
+  'http://www.europeinsideout.com/wp-content/uploads/2012/03/berlin-brandenburger_tor-300x199.jpg',
+];
 
 describe('integration saw view and sights view', function () {
   var sightsView;
   var sawView;
+  var server;
 
-  before(function (done) {
-    sightsView = see.mainView.sightsView;
-    sawView = see.mainView.sawView;
+  before(function () {
+    server = sinon.fakeServer.create();
+    server.respondWith(
+      'GET', '/data/ses-see/sights',
+      [ 200, { 'Content-Type': 'application/json' }, JSON.stringify({ images: mockSights }) ]
+    );
+
+    var mainView = see.init();
+    server.respond();
+
+    sightsView = mainView.sightsView;
+    sawView = mainView.sawView;
     sightsView.$el.empty();
+  });
 
-    if (sightsView.ready) done();
-    else localBus.on('sights:view:ready', done);
+  after(function () {
+    server.restore();
   });
 
   it('sights view has no images initially', function () {

@@ -16,6 +16,8 @@ var SawView = module.exports = Backbone.View.extend({
   },
 
   initialize: function () {
-    console.log('initializing saw view');
+  },
+
+  reset: function(){
   }
 });

@@ -9,6 +9,10 @@ module.exports = Backbone.View.extend({
   initialize: function () {
     this.sawView = new SawView({ el: this.$el.find('.ses-see-saw') });
     this.sightsView = new SightsView({ el: this.$el.find('.ses-see-sights') });
-    console.log('initialized main view');
+  },
+
+  reset: function () {
+    this.sawView.reset();
+    this.sightsView.reset();
   }
 });

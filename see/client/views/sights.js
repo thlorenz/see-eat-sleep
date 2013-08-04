@@ -25,6 +25,11 @@ var SightsView = module.exports = Backbone.View.extend({
     });
   },
 
+  reset: function(){
+    this.$el.empty();
+    this.initialize();
+  },
+
   addSight: function () {
     var images = this.sights.get('images');
     var url = images[this.imgIdx++];

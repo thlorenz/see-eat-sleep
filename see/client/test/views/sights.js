@@ -3,8 +3,7 @@
 var $ = require('ses-core').jquery;
 var assert = require('assert');
 var localBus = require('../../lib/local-bus');
-var sinon = require('sinon');
-var see;
+var see = require('../../see');
 
 var mockSights = [
   'http://upload.wikimedia.org/wikipedia/commons/a/a0/Potsdam_St._Nikolaikirche_2005.jpg',
@@ -15,27 +14,22 @@ describe('sights view', function () {
   var sightsView;
   var server;
 
-  beforeEach(function (done) {
+  before(function () {
     server = sinon.fakeServer.create();
     server.respondWith(
       'GET', '/data/ses-see/sights',
       [ 200, { 'Content-Type': 'application/json' }, JSON.stringify({ images: mockSights }) ]
     );
 
-    // TODO: these things should have an init function instead of things starting to fly just when they are required
-    see = require('../../see');
-
-    sightsView = see.mainView.sightsView;
-    sightsView.$el.empty();
+    var mainView = see.init();
 
     server.respond();
 
-    done();
-    /*if (sightsView.ready) done();
-    else localBus.on('sights:view:ready', done);*/
+    sightsView = mainView.sightsView;
+    sightsView.$el.empty();
   });
 
-  afterEach(function () {
+  after(function () {
     server.restore();
   });
 

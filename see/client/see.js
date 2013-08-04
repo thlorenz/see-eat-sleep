@@ -6,4 +6,13 @@ var MainView = require('./views/main');
 
 console.log('sourcing see');
 
-exports.mainView = new MainView({ el: $('#ses-see-main') });
+var mainView;
+exports.init = function () {
+  if (mainView) {
+    mainView.reset();
+  } else {
+    mainView = new MainView({ el: $('#ses-see-main') });
+  }
+
+  return mainView;
+};

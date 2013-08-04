@@ -10,7 +10,7 @@ function getResource(url, cb) {
   .fail(cb);
 }
 
-describe('fake server responds', function () {
+describe('fake server responds to my request', function () {
 
   var server;
   it('gets those resources', function (done) {

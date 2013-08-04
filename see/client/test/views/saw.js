@@ -9,7 +9,7 @@ var see = require('../../see');
 describe('saw view', function () {
 
   describe('when I click the saw button', function () {
-    var sawView, localSaw, globalSaw;
+    var sawView, localSaw, globalSaw, server;
 
     before(function () {
       localSaw = false;
@@ -22,8 +22,21 @@ describe('saw view', function () {
         globalSaw = true;
       });
 
-      sawView = see.mainView.sawView;
+      server = sinon.fakeServer.create();
+      server.respondWith(
+        'GET', '/data/ses-see/sights',
+        [ 200, { 'Content-Type': 'application/json' }, JSON.stringify({ images: [] }) ]
+      );
+
+      var mainView = see.init();
+      server.respond();
+
+      sawView = mainView.sawView;
       sawView.$el.trigger('click');
+    });
+
+    after(function () {
+      server.restore();
     });
 
     it('tells the local bus that the user saw', function () {
