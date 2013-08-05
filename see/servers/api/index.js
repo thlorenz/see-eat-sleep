@@ -1,6 +1,7 @@
 'use strict';
 
-var api = require('ses-bootstrap').api;
-var dirs = require('../../config/directories');
+var core = require('ses-core');
 
-api.registerEndpoints(__dirname, 'routes');
+exports.init = function (app, restify) {
+  core.registerEndpoints(__dirname, 'routes', app, restify);
+};

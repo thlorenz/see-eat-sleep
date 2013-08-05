@@ -1,6 +1,6 @@
 'use strict';
 
-var sightsData = require('../data/sights');
+var sightsData = require('../../api/data/sights');
 
 var go = module.exports = function (app) {
   app.get('/data/ses-see/sights', function (req, res) {

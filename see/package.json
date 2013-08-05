@@ -34,7 +34,10 @@
     "mocha": "~1.12.0",
     "sinon": "~1.7.3",
     "zuul": "git://github.com/shtylman/zuul",
-    "browserify": "~2.26.0"
+    "browserify": "~2.26.0",
+    "express": "~3.3.4",
+    "optimist": "~0.6.0",
+    "mold-source-map": "~0.2.0"
   },
   "keywords": [],
   "author": {

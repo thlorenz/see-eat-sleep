@@ -1,9 +1,10 @@
 'use strict';
 
-var pages = require('ses-bootstrap').pages;
+var core = require('ses-core');
 var dirs = require('../../config/directories');
 
-pages.registerPartials(dirs.partials, 'ses-see-');
-
-pages.registerEndpoints(__dirname, 'middleware');
-pages.registerEndpoints(__dirname, 'routes');
+exports.init = function (app, express) {
+  core.registerEndpoints(__dirname, 'middleware', app, express);
+  core.registerEndpoints(__dirname, 'routes', app, express);
+  core.registerPartials(dirs.partials, 'ses-see-');
+};

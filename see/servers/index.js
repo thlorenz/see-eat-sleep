@@ -1,8 +1,12 @@
-// init core partials, routes, etc.
-require('ses-core');
+'use strict';
 
-// initalize pages server
-require('./pages');
+var core = require('ses-core');
+var pagesServer = require('./pages');
+var apiServer = require('./api');
 
-// initalize api server
-require('./api');
+exports.init = function (pagesApp, express, apiApp, restify) {
+  core.init(pagesApp, express, apiApp, restify);
+
+  pagesServer.init(pagesApp, express);
+  // apiServer.init(apiApp, restify);
+};
