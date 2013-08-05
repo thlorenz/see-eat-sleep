@@ -12,7 +12,7 @@
   "scripts": {
     "preinstall": "sh ./preinstall.sh",
     "postinstall": "npm dedupe",
-    "start": "nodemon -e js,css,hbs,json dev.js",
+    "start": "nodemon -e js,css,hbs,json appup --pagesconfig ./appup-dev-pagesconfig.js --pages 3000 ./client/init",
     "start-test-old": "PAGES_PORT=3001 nodemon -e js,css,hbs,json dev-test.js",
     "test-old": "PAGES_PORT=3002 node dev-test --phantomjs",
     "test": "zuul client/test/views/ --config ./zuul-test-config.js",
