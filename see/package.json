@@ -15,8 +15,8 @@
     "start": "nodemon -e js,css,hbs,json dev.js",
     "start-test-old": "PAGES_PORT=3001 nodemon -e js,css,hbs,json dev-test.js",
     "test-old": "PAGES_PORT=3002 node dev-test --phantomjs",
-    "test": "zuul client/test/views/ --config ./zuul-config.js",
-    "start-test": "zuul client/test/views/ --server 3000 --config ./zuul-config.js"
+    "test": "zuul client/test/views/ --config ./zuul-test-config.js",
+    "start-test": "zuul client/test/views/ --server 3000 --config ./zuul-test-config.js"
   },
   "repository": {
     "type": "git",
