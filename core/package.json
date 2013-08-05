@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/thlorenz/core",
   "dependencies": {
-    "hyperwatch": "~0.5.0"
+    "hyperwatch": "~0.5.0",
+    "handlebars": "~1.0.12",
+    "require-all": "0.0.6"
   },
   "devDependencies": {
     "nodemon": "~0.7.8"

@@ -1,11 +1,16 @@
 'use strict';
 
-// This module is required by a sub app at which point it initializes itself
-
-var pages = require('ses-bootstrap').pages;
 var dirs = require('../../config/directories');
+var core = require('../index');
 
-pages.registerPartials(dirs.partials, 'ses-core-');
+exports.init = function (app, express) {
+  core.registerPartials(dirs.partials, 'ses-core-');
 
-pages.registerEndpoints(__dirname, 'middleware');
-pages.registerEndpoints(__dirname, 'routes');
+  app.use(express.logger('dev'));
+  app.set('view engine', 'hbs');
+
+  core.registerEndpoints(__dirname, 'middleware', app, express);
+  core.registerEndpoints(__dirname, 'routes', app, express);
+
+  // TODO: possibly add hyperwatch here
+};

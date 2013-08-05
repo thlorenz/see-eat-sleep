@@ -1,16 +1,5 @@
 <!-- loading jquery, and other large and very common libraries via a script tag -->
 <!-- in order to make use of the fact that libs loaded from CDNs will be in user's cache already -->
 
-<!-- the ./config/shims.js -> expose: {} keys point to the files that expose them -->
-
 <!-- exposed via ./vendor/expose=jquery.js which exports 'window.$' -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-<!-- similarly for backbone and underscore -->
-<!-- underscore must be sourced before backbone -->
-<!-- exposed via ./vendor/expose-underscore.js which exports 'window._' -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
-
-<!-- exposed via ./vendor/expose-backbone.js which exports 'window.Backnone' -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
-
