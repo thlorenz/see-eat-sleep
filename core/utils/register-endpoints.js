@@ -29,12 +29,14 @@ var go = module.exports = function (root, dir, app, servermodule) {
 
   var modules = requireAll({
     dirname     :  path.join(root, dir),
-    filter      :  /.+\.js$/,
+    filter      :  /(.+)\.js$/,
     excludeDirs :  /^\.(git|svn)$/
   });
 
   Object.keys(modules)
     .forEach(function (k) {
+      console.error('registering ' + root + '/' + dir + '/' + k);
+
       var init = modules[k];
       init(app, servermodule);
     });

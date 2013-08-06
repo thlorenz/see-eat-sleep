@@ -24,5 +24,5 @@ exports.init = function (app, express, apiServerInfo) {
   core.registerEndpoints(__dirname, 'middleware', app, express);
   core.registerEndpoints(__dirname, 'routes', app, express);
 
-//  hyperwatch(app);
+  hyperwatch(app);
 };
