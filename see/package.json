@@ -25,7 +25,8 @@
   "dependencies": {
     "hbsfy": "~0.1.5",
     "backbone": "~1.0.0",
-    "underscore": "~1.5.1"
+    "underscore": "~1.5.1",
+    "express": "~3.3.4"
   },
   "devDependencies": {
     "nodemon": "~0.7.8",

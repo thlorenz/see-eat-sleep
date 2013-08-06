@@ -1,9 +1,9 @@
 'use strict';
 
 var path = require('path');
+var restify = require('restify');
 var express = require('express');
 var optimist = require('optimist');
-var pagesApp = express();
 var browserify = require('browserify');
 
 var cwd = process.cwd();
@@ -40,26 +40,34 @@ var bundleOpts = config.bundleOpts || { insertGlobals: true, debug: true };
 
 bfy.require(entry, { entry: true });
 
-// TODO: init and startup api server and startup init pages with it
+function initPages (bfy, config) {
+  var pagesApp = express();
 
-if (config.initPages) {
-  config.initPages(pagesApp, express);
+  if (config.initPages) {
+    config.initPages(pagesApp, express);
+  }
+
+  pagesApp.get('/build.js', function(req, res) {
+    res.contentType('application/javascript');
+    bfy.bundle(bundleOpts, function(err, src) {
+      if (err) {
+        console.error(err);
+        return res.send(500);
+      }
+      res.end(src);
+    });
+  });
+  return pagesApp;
 }
 
-pagesApp.get('/build.js', function(req, res) {
-  res.contentType('application/javascript');
-  bfy.bundle(bundleOpts, function(err, src) {
-    if (err) {
-      console.error(err);
-      return res.send(500);
-    }
-    res.end(src);
+function startPages (bfy, config, port) {
+  var pagesApp = initPages(bfy, config);
+  var pagesServer = pagesApp.listen(port);
+
+  pagesServer.once('listening', function() {
+    var port = pagesServer.address().port;
+    console.log('server listening: http://localhost:' + port);
   });
-});
+}
 
-var pagesServer = pagesApp.listen(argv.pages);
-
-pagesServer.once('listening', function() {
-  var port = pagesServer.address().port;
-  console.log('server listening: http://localhost:' + port);
-});
+startPages(bfy, config, argv.pages);

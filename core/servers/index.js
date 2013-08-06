@@ -8,8 +8,8 @@ var renderViewMiddleware = require('../utils/render-view-middleware');
 var pagesServer = require('./pages');
 var apiServer = require('./api');
 
-exports.initPages = function (pagesApp, restify, apiServer) {
-  pagesServer.init(pagesApp, restify, apiServer);
+exports.initPages = function (pagesApp, express, apiServerInfo) {
+  pagesServer.init(pagesApp, express, apiServer);
 };
 
 exports.initApi = function (apiApp, restify) {

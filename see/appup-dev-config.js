@@ -8,8 +8,8 @@ var servers = require('./servers');
 
 var viewPath = path.join(dirs.templates, 'index.hbs');
 
-exports.initPages = function (pagesApp, restify, apiServer) {
-  servers.initPages(pagesApp, restify, apiServer);
+exports.initPages = function (pagesApp, restify, apiServerInfo) {
+  servers.initPages(pagesApp, restify, apiServerInfo);
   pagesApp.use(core.renderViewMiddleware(viewPath, { title: 'see' }));
 };
 
