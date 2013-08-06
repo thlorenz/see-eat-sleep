@@ -12,9 +12,9 @@ var argv = optimist
   .usage('nodeup [options] file')
   .demand('pages')
   .describe('pages', 'port to start pages server on')
-  .demand('pagesconfig')
-  .describe('pagesconfig', 'point to a config file to override routes, etc. for the pages server')
-  .describe('apiconfig', 'point to a config file to override routes, etc. for the api server')
+  .describe('api', 'port to start api server on')
+  .demand('config')
+  .describe('config', 'point to a config file to override routes, etc. for the pages and api server')
   .argv;
 
 function usageAndBail () {
@@ -32,16 +32,19 @@ if (!entry) {
   usageAndBail();
 }
 
-var pagesconfig = require(path.join(cwd, argv.pagesconfig));
-if (pagesconfig.initApp) {
-  pagesconfig.initApp(pagesApp, express);
-}
+var config = require(path.join(cwd, argv.config));
 
 // TODO: be smarter about transforms found in cwd/package.json
-var bfy = pagesconfig.browserify ? pagesconfig.browserify() : browserify();
-var bundleOpts = pagesconfig.bundleOpts || { insertGlobals: true, debug: true };
+var bfy = config.browserify ? config.browserify() : browserify();
+var bundleOpts = config.bundleOpts || { insertGlobals: true, debug: true };
 
 bfy.require(entry, { entry: true });
+
+// TODO: init and startup api server and startup init pages with it
+
+if (config.initPages) {
+  config.initPages(pagesApp, express);
+}
 
 pagesApp.get('/build.js', function(req, res) {
   res.contentType('application/javascript');

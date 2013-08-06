@@ -3,8 +3,8 @@
 var core = require('ses-core');
 var dirs = require('../../config/directories');
 
-exports.init = function (app, express) {
-  core.registerEndpoints(__dirname, 'middleware', app, express);
-  core.registerEndpoints(__dirname, 'routes', app, express);
+exports.init = function (app, restify) {
+  core.registerEndpoints(__dirname, 'middleware', app, restify);
+  core.registerEndpoints(__dirname, 'routes', app, restify);
   core.registerPartials(dirs.partials, 'ses-see-');
 };

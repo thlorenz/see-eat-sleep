@@ -4,9 +4,14 @@ var core = require('ses-core');
 var pagesServer = require('./pages');
 var apiServer = require('./api');
 
-exports.init = function (pagesApp, express, apiApp, restify) {
-  core.init(pagesApp, express, apiApp, restify);
+exports.initPages = function (pagesApp, restify, apiServer) {
+  core.initPages(pagesApp, restify, apiServer);
 
-  pagesServer.init(pagesApp, express);
+  pagesServer.init(pagesApp, restify);
+};
+
+exports.initApi = function (apiApp, restify) {
+  core.initApi(apiApp, restify);
+
   // apiServer.init(apiApp, restify);
 };

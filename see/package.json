@@ -12,11 +12,9 @@
   "scripts": {
     "preinstall": "sh ./preinstall.sh",
     "postinstall": "npm dedupe",
-    "start": "nodemon -e js,css,hbs,json appup --pagesconfig ./appup-dev-pagesconfig.js --pages 3000 ./client/init",
-    "start-test-old": "PAGES_PORT=3001 nodemon -e js,css,hbs,json dev-test.js",
-    "test-old": "PAGES_PORT=3002 node dev-test --phantomjs",
+    "start": "nodemon -e js,css,hbs,json appup --config ./appup-dev-config.js --pages 3000 ./client/init",
     "test": "zuul client/test/views/ --config ./zuul-test-config.js",
-    "start-test": "zuul client/test/views/ --server 3000 --config ./zuul-test-config.js"
+    "start-test": "zuul client/test/views/ --server 3002 --config ./zuul-test-config.js"
   },
   "repository": {
     "type": "git",
@@ -35,9 +33,9 @@
     "sinon": "~1.7.3",
     "zuul": "git://github.com/shtylman/zuul",
     "browserify": "~2.26.0",
-    "express": "~3.3.4",
     "optimist": "~0.6.0",
-    "mold-source-map": "~0.2.0"
+    "mold-source-map": "~0.2.0",
+    "restify": "~2.6.0"
   },
   "keywords": [],
   "author": {
