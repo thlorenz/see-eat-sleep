@@ -40,11 +40,11 @@ var bundleOpts = config.bundleOpts || { insertGlobals: true, debug: true };
 
 bfy.require(entry, { entry: true });
 
-function initPages (bfy, config) {
+function initPages (bfy, config, apiServerInfo) {
   var pagesApp = express();
 
   if (config.initPages) {
-    config.initPages(pagesApp, express);
+    config.initPages(pagesApp, express, apiServerInfo);
   }
 
   pagesApp.get('/build.js', function(req, res) {
@@ -60,14 +60,43 @@ function initPages (bfy, config) {
   return pagesApp;
 }
 
-function startPages (bfy, config, port) {
-  var pagesApp = initPages(bfy, config);
+function startPages (bfy, config, port, apiServerInfo) {
+  var pagesApp = initPages(bfy, config, apiServerInfo);
   var pagesServer = pagesApp.listen(port);
 
   pagesServer.once('listening', function() {
     var port = pagesServer.address().port;
-    console.log('server listening: http://localhost:' + port);
+    console.log('pages server listening: http://localhost:' + port);
   });
 }
 
-startPages(bfy, config, argv.pages);
+function maybeStartPages (bfy, config, argv, apiServerInfo) {
+  if (argv.pages) startPages(bfy, config, argv.pages, apiServerInfo);
+}
+
+function initApi (config) {
+  var apiApp = restify.createServer();
+
+  if (config.initApi) {
+    config.initApi(apiApp, restify);
+  }
+  return apiApp;
+}
+
+function startApi (config, port, cb) {
+  var apiApp = initApi(config);
+  var apiServer = apiApp.listen(port);
+
+  apiServer.once('listening', function () {
+    var address = apiServer.address();
+    var port = address.port;
+    console.log('api server listening: http://localhost:' + port);
+    cb(null, address);
+  });
+}
+
+if (argv.api) startApi(config, argv.api, function (err, address) {
+  if (err) return console.error(err);
+  maybeStartPages(bfy, config, argv, { address: address });
+});
+

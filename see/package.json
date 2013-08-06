@@ -12,7 +12,7 @@
   "scripts": {
     "preinstall": "sh ./preinstall.sh",
     "postinstall": "npm dedupe",
-    "start": "nodemon -e js,css,hbs,json appup --config ./appup-dev-config.js --pages 3000 ./client/init",
+    "start": "nodemon -e js,css,hbs,json appup --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
     "test": "zuul client/test/views/ --config ./zuul-test-config.js",
     "start-test": "zuul client/test/views/ --server 3002 --config ./zuul-test-config.js"
   },

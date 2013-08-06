@@ -7,11 +7,11 @@ var apiServer = require('./api');
 exports.initPages = function (pagesApp, restify, apiServerInfo) {
   core.initPages(pagesApp, restify, apiServerInfo);
 
-  pagesServer.init(pagesApp, restify);
+  pagesServer.init(pagesApp, restify, apiServerInfo);
 };
 
 exports.initApi = function (apiApp, restify) {
   core.initApi(apiApp, restify);
 
-  // apiServer.init(apiApp, restify);
+  apiServer.init(apiApp, restify);
 };
