@@ -76,7 +76,6 @@ function maybeStartPages (bfy, config, argv, apiServerInfo) {
 
 function initApi (config) {
   var apiApp = restify.createServer();
-
   if (config.initApi) {
     config.initApi(apiApp, restify);
   }

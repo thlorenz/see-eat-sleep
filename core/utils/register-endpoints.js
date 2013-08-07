@@ -35,8 +35,6 @@ var go = module.exports = function (root, dir, app, servermodule) {
 
   Object.keys(modules)
     .forEach(function (k) {
-      console.error('registering ' + root + '/' + dir + '/' + k);
-
       var init = modules[k];
       init(app, servermodule);
     });

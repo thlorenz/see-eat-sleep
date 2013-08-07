@@ -19,7 +19,9 @@
     "handlebars": "~1.0.12",
     "require-all": "0.0.6",
     "hyperquest": "~0.1.7",
-    "render-routes": "~0.1.0"
+    "bytes": "~0.2.1",
+    "log-request": "0.0.1",
+    "render-routes": "~0.1.1"
   },
   "devDependencies": {
     "nodemon": "~0.7.8"
