@@ -1,6 +1,6 @@
 'use strict';
 
-var $ = require('ses-core').jquery;
+var $ = require('jquery');
 var assert = require('assert');
 
 function getResource(url, cb) {

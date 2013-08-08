@@ -1,6 +1,6 @@
 'use strict';
 
-var $ = require('ses-core').jquery;
+var $ = require('jquery');
 
 var MainView = require('./views/main');
 
