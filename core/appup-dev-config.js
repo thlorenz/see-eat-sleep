@@ -8,6 +8,10 @@ var servers = require('./servers');
 
 var viewPath = path.join(dirs.templates, 'index.hbs');
 
+exports.browserify = core.browserify;
+exports.bundleOpts = { debug: true, insertGlobals: false };
+
+
 exports.initPages = function (pagesApp, express, apiServerInfo) {
   servers.initPages(pagesApp, express, apiServerInfo);
   pagesApp.use(core.renderViewMiddleware(viewPath, { title: 'core' }));

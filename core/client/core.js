@@ -1,12 +1,11 @@
 'use strict';
 
+var jquery = require('jquery');
 var Backbone = require('backbone');
 var _ = require('underscore');
 
-var jquery = window.jQuery;
 Backbone.$ = jquery;
 
-exports.jquery    =  jquery;
 exports.globalBus =  require('./lib/global-bus');
 
 exports.init = function () {
