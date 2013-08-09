@@ -1,9 +1,7 @@
 'use strict';
 
-var browserify = require('browserify');
-
 /**
- * Creates browserify instance and adds and exposes certain client side libraries with it.
+ * Initializes browserify instance and adds and exposes certain client side libraries with it.
  *
  * jquery is exposed in order to be able to do `var $ = require('jquery');`
  * backbone and underscore are exposed here in order to include them only once in the bundle for two reasons:
@@ -19,7 +17,7 @@ var browserify = require('browserify');
  * @function
  * @return {Object} browserify instance
  */
-var go = module.exports = function () {
+var go = module.exports = function (browserify) {
   return browserify()
     .require(require.resolve('underscore'), { expose: 'underscore' })
     .require(require.resolve('backbone'), { expose: 'backbone' })

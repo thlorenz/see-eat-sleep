@@ -21,4 +21,4 @@ exports.registerEndpoints = registerEndpoints;
 exports.renderView = renderView;
 exports.renderViewMiddleware = renderViewMiddleware;
 
-exports.browserify = require('../config/browserify');
+exports.initBrowserify = require('../config/init-browserify');

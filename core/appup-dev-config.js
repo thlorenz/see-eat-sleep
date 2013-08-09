@@ -9,7 +9,7 @@ var servers = require('./servers');
 var viewPath = path.join(dirs.templates, 'index.hbs');
 
 // Use a browserify instance that exposes jquery, backbone and underscore
-exports.browserify = core.browserify;
+exports.initBrowserify = core.initBrowserify;
 exports.bundleOpts = { debug: true, insertGlobals: false };
 
 
