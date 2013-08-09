@@ -27,11 +27,10 @@
   },
   "devDependencies": {
     "nodemon": "~0.7.8",
-    "mocha": "~1.12.0",
     "sinon": "~1.7.3",
-    "zuul": "git://github.com/shtylman/zuul",
-    "optimist": "~0.6.0",
-    "appup": "0.0.2"
+    "zuul": "git://github.com/shtylman/zuul#fixes-and-browserify-init-change",
+    "appup": "~0.0.2",
+    "mocha": "~1.12.0"
   },
   "keywords": [],
   "author": {
