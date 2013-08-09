@@ -5,6 +5,7 @@ var dirs = require('../../config/directories');
 var core = require('../index');
 var hyperquest = require('hyperquest');
 var hyperwatch = require('hyperwatch');
+var replify = require('replify');
 
 exports.init = function (app, express, apiServerInfo) {
   var addr = apiServerInfo.address.address;
@@ -24,5 +25,5 @@ exports.init = function (app, express, apiServerInfo) {
   core.registerEndpoints(__dirname, 'middleware', app, express);
   core.registerEndpoints(__dirname, 'routes', app, express);
 
-  hyperwatch(app);
+  replify('pages', app);
 };
