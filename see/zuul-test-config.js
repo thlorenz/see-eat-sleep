@@ -13,15 +13,6 @@ var sinonpkg = path.join(path.dirname(require.resolve('sinon')), '..', 'pkg', 's
 exports.initBrowserify = core.initBrowserify;
 exports.bundleOpts = { debug: true, insertGlobals: false };
 
-exports.fixture = function () {
-  return fs.readFileSync(path.join(testroot, 'fixture.html'), 'utf8');
-};
+exports.fixture = core.testFixture;
 
-exports.initApp = function (app, express) {
-  app.use(express.logger('dev'));
-  app.use('/ses-see-css', express.static(dirs.css));
-
-  app.get('/sinon.js', function (req, res) {
-    res.sendfile(sinonpkg);
-  });
-};
+exports.initApp = core.testInitApp;
