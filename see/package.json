@@ -29,8 +29,8 @@
     "nodemon": "~0.7.8",
     "sinon": "~1.7.3",
     "zuul": "git://github.com/shtylman/zuul#fixes-and-browserify-init-change",
-    "appup": "~0.0.2",
-    "mocha": "~1.12.0"
+    "mocha": "~1.12.0",
+    "appup": "0.0.5"
   },
   "keywords": [],
   "author": {

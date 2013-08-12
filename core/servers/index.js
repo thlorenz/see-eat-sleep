@@ -12,8 +12,16 @@ exports.initPages = function (pagesApp, express, apiServerInfo) {
   pagesServer.init(pagesApp, express, apiServerInfo);
 };
 
+exports.postInitPages = function (pagesApp, server, express) {
+  pagesServer.postInit(pagesApp, server, express);
+};
+
 exports.initApi = function (apiApp, restify) {
   apiServer.init(apiApp, restify);
+};
+
+exports.postInitApi = function (apiApp, server, restify) {
+  apiServer.postInit(apiApp, server, restify);
 };
 
 exports.registerPartials = registerPartials;

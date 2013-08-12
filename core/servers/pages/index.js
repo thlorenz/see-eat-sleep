@@ -27,3 +27,7 @@ exports.init = function (app, express, apiServerInfo) {
 
   replify('pages', app);
 };
+
+exports.postInit = function (app, server, express) {
+  hyperwatch(server);
+};

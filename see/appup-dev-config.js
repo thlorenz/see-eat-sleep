@@ -17,6 +17,10 @@ exports.initPages = function (pagesApp, express, apiServerInfo) {
   pagesApp.use(core.renderViewMiddleware(viewPath, { title: 'see' }));
 };
 
+exports.postInitPages = core.postInitPages;
+
 exports.initApi = function (apiApp, restify) {
   servers.initApi(apiApp, restify);
 };
+
+exports.postInitApi = core.postInitApi;

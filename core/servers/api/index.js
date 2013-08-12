@@ -11,3 +11,6 @@ exports.init = function (app, restify) {
   app.server.on('request', logRequest);
   core.registerEndpoints(__dirname, 'routes', app, restify);
 };
+
+exports.postInit = function (app, server, restify) {
+};
