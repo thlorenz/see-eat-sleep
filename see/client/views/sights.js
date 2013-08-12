@@ -1,7 +1,6 @@
 'use strict';
 
 var Backbone = require('backbone');
-var SightsModel = require('../models/sights');
 var sightTemplate = require('../../templates/partials/sight.hbs');
 var localBus = require('../lib/local-bus');
 
@@ -12,7 +11,7 @@ var SightsView = module.exports = Backbone.View.extend({
 
   initialize: function () {
     var view = this;
-    new SightsModel().fetch({
+    view.model.fetch({
       success: function (sights, res, opts) {
         view.sights = sights;
         view.ready = true;

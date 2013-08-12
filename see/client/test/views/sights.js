@@ -4,6 +4,7 @@ var $ = require('jquery');
 var assert = require('assert');
 var localBus = require('../../lib/local-bus');
 var SightsView = require('../../views/sights');
+var SightsModel = require('../../models/sights');
 
 var mockSights = [
   'http://upload.wikimedia.org/wikipedia/commons/a/a0/Potsdam_St._Nikolaikirche_2005.jpg',
@@ -18,15 +19,15 @@ describe('sights view', function () {
   before(function () {
     $('body').append($('<ul>').addClass(clazz));
 
-    server = sinon.fakeServer.create();
-    server.respondWith(
-      'GET', '/data/ses-see/sights',
-      [ 200, { 'Content-Type': 'application/json' }, JSON.stringify({ images: mockSights }) ]
-    );
+    sightsView = new SightsView({
+      el: $('.' + clazz),
+      model: {
+        fetch: function (opts) {
+          opts.success(new SightsModel({ images: mockSights }));
+        }
+      }
+    });
 
-    sightsView = new SightsView({ el: $('.' + clazz) });
-
-    server.respond();
   });
 
   after(function () {

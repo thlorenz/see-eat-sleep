@@ -1,25 +1,20 @@
 'use strict';
 
-var $ = require('jquery');
 var assert = require('assert');
-var localBus = require('../../lib/local-bus');
 var see = require('../../see');
+var SightsModel = require('../../models/sights');
+
+var Backbone = require('backbone');
 
 describe('see main', function () {
   var mainView, server;
   before(function () {
-    server = sinon.fakeServer.create();
-    server.respondWith(
-      'GET', '/data/ses-see/sights',
-      [ 200, { 'Content-Type': 'application/json' }, JSON.stringify({ images: [] }) ]
-    );
-
+    sinon.stub(Backbone, 'sync');
     mainView = see.init();
-    server.respond();
   });
 
   after(function () {
-    server.restore();
+    Backbone.sync.restore();
   });
 
   describe('all views exist', function () {
