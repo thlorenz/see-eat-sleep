@@ -6,8 +6,8 @@
   "browser": "./client/core.js",
   "scripts": {
     "start": "nodemon -e js,css,hbs,json ./node_modules/.bin/appup --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
-    "test": "zuul client/test/views/ --config ./zuul-test-config.js",
-    "start-test": "zuul client/test/views/ --server 3002 --config ./zuul-test-config.js"
+    "test": "zuul client/test/ --config ./zuul-test-config.js",
+    "start-test": "zuul client/test/ --server 3002 --config ./zuul-test-config.js"
   },
   "repository": {
     "type": "git",
@@ -28,8 +28,9 @@
   },
   "devDependencies": {
     "nodemon": "~0.7.8",
-    "zuul": "git://github.com/shtylman/zuul",
-    "appup": "~0.0.3"
+    "appup": "~0.0.3",
+    "sinon": "~1.7.3",
+    "zuul": "~0.2.0"
   },
   "keywords": [],
   "author": {
