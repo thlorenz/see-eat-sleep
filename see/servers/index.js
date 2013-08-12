@@ -10,8 +10,12 @@ exports.initPages = function (pagesApp, restify, apiServerInfo) {
   pagesServer.init(pagesApp, restify, apiServerInfo);
 };
 
+exports.postInitPages = core.postInitPages;
+
 exports.initApi = function (apiApp, restify) {
   core.initApi(apiApp, restify);
 
   apiServer.init(apiApp, restify);
 };
+
+exports.postInitApi = core.postInitApi;
