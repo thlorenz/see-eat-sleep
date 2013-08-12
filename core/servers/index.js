@@ -4,10 +4,23 @@ var registerPartials = require('../utils/register-partials');
 var registerEndpoints = require('../utils/register-endpoints');
 var renderView = require('../utils/render-view');
 var renderViewMiddleware = require('../utils/render-view-middleware');
+var testSupport = require('../utils/test-support');
 
 var pagesServer = require('./pages');
 var apiServer = require('./api');
 
+// utility functions
+exports.registerPartials = registerPartials;
+exports.registerEndpoints = registerEndpoints;
+exports.renderView = renderView;
+exports.renderViewMiddleware = renderViewMiddleware;
+
+// test support
+exports.testFixture = testSupport.fixture;
+exports.testInitApp = testSupport.initApp;
+
+
+// server initilization
 exports.initPages = function (pagesApp, express, apiServerInfo) {
   pagesServer.init(pagesApp, express, apiServerInfo);
 };
@@ -23,10 +36,5 @@ exports.initApi = function (apiApp, restify) {
 exports.postInitApi = function (apiApp, server, restify) {
   apiServer.postInit(apiApp, server, restify);
 };
-
-exports.registerPartials = registerPartials;
-exports.registerEndpoints = registerEndpoints;
-exports.renderView = renderView;
-exports.renderViewMiddleware = renderViewMiddleware;
 
 exports.initBrowserify = require('../config/init-browserify');
