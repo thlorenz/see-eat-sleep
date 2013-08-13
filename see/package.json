@@ -31,14 +31,14 @@
   "devDependencies": {
     "nodemon": "~0.7.8",
     "sinon": "~1.7.3",
-    "zuul": "git://github.com/shtylman/zuul#fixes-and-browserify-init-change",
     "mocha": "~1.12.0",
     "appup": "0.0.5",
     "tap": "~0.4.4",
     "express": "~3.3.5",
     "replify": "~1.1.2",
     "replpad": "~0.11.1",
-    "through": "~2.3.4"
+    "through": "~2.3.4",
+    "zuul": "~0.2.0"
   },
   "keywords": [],
   "author": {
