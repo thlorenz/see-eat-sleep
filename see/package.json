@@ -15,9 +15,10 @@
     "start": "nodemon -e js,css,hbs,json ./node_modules/.bin/appup --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
     "test-pages": "tap servers/pages/test",
     "test-pages-integration": "tap servers/pages/test-integration",
+    "test-api-integration": "tap servers/api/test-integration",
     "test-client": "zuul client/test/views/ --config ./zuul-test-config.js",
     "start-test": "zuul client/test/views/ --server 3002 --config ./zuul-test-config.js",
-    "test": "npm run test-client && npm run test-pages && npm run test-pages-integration"
+    "test": "npm run test-client && npm run test-pages && npm run test-pages-integration && npm run test-api-integration"
   },
   "repository": {
     "type": "git",
@@ -38,7 +39,9 @@
     "replify": "~1.1.2",
     "replpad": "~0.11.1",
     "through": "~2.3.4",
-    "zuul": "~0.2.0"
+    "zuul": "~0.2.0",
+    "restify": "~2.6.0",
+    "concat-stream": "~1.0.0"
   },
   "keywords": [],
   "author": {

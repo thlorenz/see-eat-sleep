@@ -9,7 +9,7 @@
   "node": true,
   "browser": true,
   "evil": false,
-  "latedef": true,
+  "latedef": false,
   "nonew": true,
   "trailing": true,
   "immed": true,
