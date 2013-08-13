@@ -6,8 +6,10 @@
   "browser": "./client/core.js",
   "scripts": {
     "start": "nodemon -e js,css,hbs,json ./node_modules/.bin/appup --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
-    "test": "zuul client/test/ --config ./zuul-test-config.js",
-    "start-test": "zuul client/test/ --server 3002 --config ./zuul-test-config.js"
+    "test-pages-integration": "tap servers/pages/test-integration",
+    "test-client": "zuul client/test/ --config ./zuul-test-config.js",
+    "start-test": "zuul client/test/ --server 3002 --config ./zuul-test-config.js",
+    "test": "npm run test-client && npm run test-pages-integration"
   },
   "repository": {
     "type": "git",
@@ -30,7 +32,12 @@
     "nodemon": "~0.7.8",
     "appup": "~0.0.3",
     "sinon": "~1.7.3",
-    "zuul": "~0.2.0"
+    "zuul": "~0.2.0",
+    "express": "~3.3.5",
+    "tap": "~0.4.4",
+    "through": "~2.3.4",
+    "server-destroy": "~1.0.0",
+    "concat-stream": "~1.0.0"
   },
   "keywords": [],
   "author": {
