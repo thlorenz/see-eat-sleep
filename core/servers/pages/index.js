@@ -24,8 +24,6 @@ exports.init = function (app, express, apiServerInfo) {
 
   core.registerEndpoints(__dirname, 'middleware', app, express);
   core.registerEndpoints(__dirname, 'routes', app, express);
-
-  replify('pages', app);
 };
 
 exports.postInit = function (app, server, express) {
