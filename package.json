@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "cd ./app && npm start",
-    "preinstall": "cd ./app && npm run preinstall"
+    "preinstall": "cd ./app && npm run preinstall",
+    "test": "(cd ./core && npm test) && (cd ./see && npm test)"
   },
   "repository": {
     "type": "git",
