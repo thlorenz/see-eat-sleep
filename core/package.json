@@ -26,7 +26,8 @@
     "render-routes": "~0.1.1",
     "underscore": "~1.5.1",
     "backbone": "~1.0.0",
-    "replify": "~1.0.2"
+    "replify": "~1.0.2",
+    "once": "~1.2.0"
   },
   "devDependencies": {
     "nodemon": "~0.7.8",

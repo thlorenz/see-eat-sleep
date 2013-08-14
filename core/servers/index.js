@@ -20,21 +20,27 @@ exports.testFixture = testSupport.fixture;
 exports.testInitApp = testSupport.initApp;
 
 
-// server initilization
-exports.initPages = function (pagesApp, express, apiServerInfo) {
-  pagesServer.init(pagesApp, express, apiServerInfo);
-};
-
-exports.postInitPages = function (pagesApp, server, express) {
-  pagesServer.postInit(pagesApp, server, express);
-};
-
-exports.initApi = function (apiApp, restify) {
-  apiServer.init(apiApp, restify);
-};
-
-exports.postInitApi = function (apiApp, server, restify) {
-  apiServer.postInit(apiApp, server, restify);
-};
-
 exports.initBrowserify = require('../config/init-browserify');
+
+// server initilization
+var once = require('once');
+
+// wrapping init functions in once to make sure they only execute once,
+// even if multiple modules initialize core as their dependency
+
+exports.initPages = once(function (pagesApp, express, apiServerInfo) {
+  pagesServer.init(pagesApp, express, apiServerInfo);
+});
+
+exports.postInitPages = once(function (pagesApp, server, express) {
+  pagesServer.postInit(pagesApp, server, express);
+});
+
+exports.initApi = once(function (apiApp, restify) {
+  apiServer.init(apiApp, restify);
+});
+
+exports.postInitApi = once(function (apiApp, server, restify) {
+  apiServer.postInit(apiApp, server, restify);
+});
+
