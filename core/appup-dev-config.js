@@ -1,7 +1,7 @@
 'use strict';
 
 var path = require('path');
-var core = require('./servers/index');
+var core = require('./app/index');
 var dirs = require('./config/directories');
 
 var viewPath = path.join(dirs.templates, 'index.hbs');

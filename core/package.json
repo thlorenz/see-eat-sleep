@@ -2,11 +2,11 @@
   "name": "core",
   "version": "0.0.0",
   "description": "The core app which is used by all the sub apps.",
-  "main": "./servers/index.js",
+  "main": "./app/index.js",
   "browser": "./client/core.js",
   "scripts": {
     "start": "nodemon -e js,css,hbs,json ./node_modules/.bin/appup --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
-    "test-pages-integration": "tap servers/pages/test-integration",
+    "test-pages-integration": "tap app/pages/test-integration",
     "test-client": "zuul client/test/ --config ./zuul-test-config.js",
     "start-test": "zuul client/test/ --server 3002 --config ./zuul-test-config.js",
     "test": "npm run test-client && npm run test-pages-integration"

@@ -1,6 +1,6 @@
 'use strict';
 
-var core = require('./servers');
+var core = require('./app');
 
 // The core browserify instance exposes jquery, backbone and underscore
 exports.initBrowserify = core.initBrowserify;
