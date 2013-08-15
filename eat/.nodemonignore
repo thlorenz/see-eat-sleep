@@ -1,0 +1,4 @@
+# ignore file for nodemon
+# makes sure that server is not restarted on purely client side changes
+
+/client
