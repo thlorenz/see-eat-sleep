@@ -4,7 +4,7 @@
   "description": "Example of building a larger app with multiple smaller apps using npm and browserify.",
   "main": "index.js",
   "scripts": {
-    "start": "cd ./app && npm start",
+    "start": "(cd ./app && npm start)",
     "preinstall": "cd ./app && npm run preinstall",
     "test": "(cd ./core && npm test) && (cd ./see && npm test)"
   },

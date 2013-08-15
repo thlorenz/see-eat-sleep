@@ -2,14 +2,12 @@
   "name": "ses-main",
   "version": "0.0.0",
   "description": "the main app that brings all sub apps together",
-  "main": "./servers/index.js",
+  "main": "./app/index.js",
   "browser": "./client/main.js",
   "scripts": {
     "preinstall": "sh ./preinstall.sh",
     "postinstall": "npm dedupe",
-    "start": "nodemon -e js,css,hbs,json dev.js",
-    "start-test": "PAGES_PORT=3001 nodemon -e js,css,hbs,json dev-test.js",
-    "test": "PAGES_PORT=3002 node dev-test --phantomjs"
+    "start": "nodemon -e js,css,hbs,json ./node_modules/.bin/appup --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init"
   },
   "repository": {
     "type": "git",
@@ -19,7 +17,8 @@
   "optionalDependencies": {},
   "dependencies": {},
   "devDependencies": {
-    "nodemon": "~0.7.8"
+    "nodemon": "~0.7.8",
+    "appup": "0.0.5"
   },
   "keywords": [],
   "author": {
