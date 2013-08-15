@@ -19,8 +19,6 @@ exports.initPages = function (pagesApp, express, apiServerInfo) {
 
 exports.postInitPages = app.postInitPages;
 
-exports.initApi = function (apiApp, restify) {
-  app.initApi(apiApp, restify);
-};
+exports.initApi = app.initApi;
 
 exports.postInitApi = app.postInitApi;
