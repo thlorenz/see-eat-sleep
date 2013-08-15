@@ -22,5 +22,6 @@ var go = module.exports = function (browserify) {
     .require(require.resolve('underscore'), { expose: 'underscore' })
     .require(require.resolve('backbone'), { expose: 'backbone' })
     .require(require.resolve('./expose-jquery'), { expose: 'jquery' })
+    .require(require.resolve('../client/core'), { expose: 'ses-core' })
     ;
 };
