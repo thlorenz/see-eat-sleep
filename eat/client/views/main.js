@@ -8,11 +8,11 @@ var Backbone = require('backbone');
 module.exports = Backbone.View.extend({
   initialize: function () {
     this.ateView = new AteView({
-      el: this.$('.ses-see-ate')
+      el: this.$('.ses-eat-ate')
     });
 
     this.foodsView = new FoodsView({
-      el: this.$('.ses-see-foods'),
+      el: this.$('.ses-eat-foods'),
       model: new FoodsModel()
     });
   }

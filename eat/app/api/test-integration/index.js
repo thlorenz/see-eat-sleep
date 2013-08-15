@@ -16,7 +16,7 @@ test('properly sets up sights route', function (t) {
 
   server.once('listening', function () {
     http
-      .request({ port: 3111, path: '/ses-see/sights' })
+      .request({ port: 3111, path: '/ses-eat/foods' })
       .once('response', function (res) {
         t.equal(res.statusCode, 200, '200 response');
         t.ok(res.headers['content-length'] > 0, 'with content');

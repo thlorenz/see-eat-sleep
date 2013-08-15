@@ -1,16 +1,16 @@
 'use strict';
 
 var assert = require('assert');
-var see = require('../../see');
-var SightsModel = require('../../models/sights');
+var eat = require('../../eat');
+var FoodsModel = require('../../models/foods');
 
 var Backbone = require('backbone');
 
-describe('see main', function () {
+describe('eat main', function () {
   var mainView, server;
   before(function () {
     sinon.stub(Backbone, 'sync');
-    mainView = see.init();
+    mainView = eat.init();
   });
 
   after(function () {
@@ -22,12 +22,12 @@ describe('see main', function () {
       assert.ok(mainView);
     });
 
-    it('main view has saw view', function () {
-      assert.ok(mainView.sawView);
+    it('main view has ate view', function () {
+      assert.ok(mainView.ateView);
     });
 
-    it('main view has sights view', function () {
-      assert.ok(mainView.sightsView);
+    it('main view has foods view', function () {
+      assert.ok(mainView.foodsView);
     });
 
   });

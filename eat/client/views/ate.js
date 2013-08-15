@@ -11,8 +11,8 @@ var SawView = module.exports = Backbone.View.extend({
   },
 
   onclicked: function () {
-    localBus.trigger('saw');
-    globalBus.trigger('ses-see-saw');
+    localBus.trigger('ate');
+    globalBus.trigger('ses-eat-ate');
   }
 
 });
