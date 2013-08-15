@@ -6,7 +6,6 @@ var core = require('../index');
 var hyperquest = require('hyperquest');
 
 var hyperwatch = require('hyperwatch');
-var replify = require('replify');
 
 exports.init = function (app, express, apiServerInfo) {
   var addr = apiServerInfo.address.address;
