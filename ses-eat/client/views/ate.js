@@ -16,13 +16,12 @@ var SawView = module.exports = Backbone.View.extend({
     globalBus.trigger('ses-eat-ate');
   },
 
-  initilialize: function () {
-    this.listenTo(globalBus, 'ses-see-saw', this.sawSight.bind(this));
+  initialize: function () {
+    this.listenTo(globalBus, 'ses-see-saw', this.sawSight);
   },
 
   sawSight: function () {
-    console.log('saw one');
-    if (++this.saw === 2) this.$('.ate').fadeIn();
+    if (++this.saw === 2) this.$el.fadeIn();
   }
 
 });
