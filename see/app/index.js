@@ -10,7 +10,6 @@ exports.initPages = function (pagesApp, express, apiServerInfo) {
   pagesServer.init(pagesApp, express, apiServerInfo);
 };
 
-
 exports.postInitPages = function (pagesApp, pagesServer, express) {
   core.postInitPages(pagesApp, pagesServer, express);
 };

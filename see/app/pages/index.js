@@ -8,3 +8,5 @@ exports.init = function (app, express) {
   core.registerEndpoints(__dirname, 'routes', app, express);
   core.registerPartials(dirs.partials, 'ses-see-');
 };
+
+exports.postInit = function (app, server, express) { /* noop for now */ };
