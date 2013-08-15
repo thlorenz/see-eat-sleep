@@ -1,9 +1,9 @@
 {
-  "name": "ses-eat",
+  "name": "ses-see",
   "version": "0.0.0",
-  "description": "the portion of the app where you get to eat things",
+  "description": "the portion of the app where you get to see things",
   "main": "./app/index.js",
-  "browser": "./client/eat.js",
+  "browser": "./client/see.js",
   "browserify": {
     "transform": [
       "hbsfy"
@@ -22,9 +22,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/thlorenz/eat.git"
+    "url": "git://github.com/thlorenz/ses-see.git"
   },
-  "homepage": "https://github.com/thlorenz/eat",
+  "homepage": "https://github.com/thlorenz/ses-see",
   "optionalDependencies": {},
   "dependencies": {
     "hbsfy": "~0.1.5"
@@ -49,7 +49,7 @@
   },
   "license": {
     "type": "MIT",
-    "url": "https://github.com/thlorenz/eat/blob/master/LICENSE"
+    "url": "https://github.com/thlorenz/ses-see/blob/master/LICENSE"
   },
   "engine": {
     "node": ">=0.6"
