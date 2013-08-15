@@ -11,7 +11,7 @@ var sinonpkg = path.join(path.dirname(require.resolve('sinon')), '..', 'pkg', 's
 
 // The core browserify instance exposes jquery, backbone and underscore
 exports.initBrowserify = core.initBrowserify;
-exports.bundleOpts = { debug: true, insertGlobals: false };
+exports.bundleOpts = core.bundleOpts;
 
 exports.fixture = core.testFixture;
 
