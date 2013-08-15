@@ -10,17 +10,18 @@ var pagesServer = require('./pages');
 var apiServer = require('./api');
 
 // utility functions
-exports.registerPartials = registerPartials;
-exports.registerEndpoints = registerEndpoints;
-exports.renderView = renderView;
-exports.renderViewMiddleware = renderViewMiddleware;
+exports.registerPartials     =  registerPartials;
+exports.registerEndpoints    =  registerEndpoints;
+exports.renderView           =  renderView;
+exports.renderViewMiddleware =  renderViewMiddleware;
 
 // test support
 exports.testFixture = testSupport.fixture;
 exports.testInitApp = testSupport.initApp;
 
-
-exports.initBrowserify = require('../config/init-browserify');
+// browserify
+exports.initBrowserify =  require('../config/init-browserify');
+exports.bundleOpts     =  require('../config/bundle-opts');
 
 // server initilization
 var once = require('once');

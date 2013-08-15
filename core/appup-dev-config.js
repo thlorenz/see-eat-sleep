@@ -8,7 +8,7 @@ var viewPath = path.join(dirs.templates, 'index.hbs');
 
 // Use a browserify instance that exposes jquery, backbone and underscore
 exports.initBrowserify = core.initBrowserify;
-exports.bundleOpts = { debug: true, insertGlobals: false };
+exports.bundleOpts = core.bundleOpts;
 
 exports.initPages = function (pagesApp, express, apiServerInfo) {
   core.initPages(pagesApp, express, apiServerInfo);
