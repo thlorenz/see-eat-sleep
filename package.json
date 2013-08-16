@@ -4,8 +4,9 @@
   "description": "Example of building a larger app with multiple smaller apps using npm and browserify.",
   "main": "index.js",
   "scripts": {
-    "start": "(cd ./app && npm start)",
-    "preinstall": "cd ./app && npm run preinstall",
+    "preinstall": "sh ./preinstall.sh",
+    "postinstall": "npm dedupe",
+    "start": "nodemon -e js,css,hbs,json ./node_modules/.bin/appup --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
     "test": "(cd ./ses-core && npm test) && (cd ./ses-see && npm test) && (cd ./ses-eat && npm test)"
   },
   "repository": {
@@ -15,7 +16,8 @@
   "homepage": "https://github.com/thlorenz/see-eat-sleep",
   "dependencies": {},
   "devDependencies": {
-    "nodemon": "~0.7.8"
+    "nodemon": "~0.7.8",
+    "appup": "0.0.5"
   },
   "keywords": [],
   "author": {
