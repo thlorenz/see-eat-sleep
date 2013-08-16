@@ -1,0 +1,17 @@
+#ses-sleep-main {
+  background: #333;
+  color: yellow;
+  border: 1px solid #222;
+  border-radius: 5px 5px 10px 5px;
+  padding: 20px;
+}
+
+.ses-sleep-bed {
+  max-width: 300px;
+  max-height: 188px;
+}
+
+.ses-sleep-slept {
+  cursor: pointer;
+  display: none;
+}
