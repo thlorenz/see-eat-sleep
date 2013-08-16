@@ -11,3 +11,7 @@
 # eat
 ( cd ./ses-eat && npm install && npm dedupe )
 [ -d ./node_modules/ses-eat ] || ln -s ../ses-eat ./node_modules/ses-eat
+
+# sleep
+( cd ./ses-sleep && npm install && npm dedupe )
+[ -d ./node_modules/ses-sleep ] || ln -s ../ses-sleep ./node_modules/ses-sleep

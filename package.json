@@ -7,7 +7,7 @@
     "preinstall": "sh ./preinstall.sh",
     "postinstall": "npm dedupe",
     "start": "nodemon -e js,css,hbs,json ./node_modules/.bin/appup --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
-    "test": "(cd ./ses-core && npm test) && (cd ./ses-see && npm test) && (cd ./ses-eat && npm test)"
+    "test": "(cd ./ses-core && npm test) && (cd ./ses-see && npm test) && (cd ./ses-eat && npm test) && (cd ./ses-sleep && npm test)"
   },
   "repository": {
     "type": "git",
