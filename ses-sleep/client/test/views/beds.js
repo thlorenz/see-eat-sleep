@@ -3,6 +3,7 @@
 var $ = require('jquery');
 var assert = require('assert');
 var localBus = require('../../lib/local-bus');
+var globalBus = require('ses-core').globalBus;
 var BedsView = require('../../views/beds');
 var BedsModel = require('../../models/beds');
 
@@ -39,17 +40,18 @@ describe('beds view', function () {
   });
 
 
-  describe('when the user slept', function () {
+  describe('when the ate', function () {
 
     before(function () {
-      localBus.trigger('slept');
+      globalBus.trigger('ses-eat:ate');
     });
 
     it('adds an image to the beds', function () {
       assert.equal(bedsView.$el.find('img').length, 1);
     });
 
-    describe('when the user slept again', function () {
+    // TODO: changes bed image
+    /*describe('when the user slept again', function () {
 
       before(function () {
         localBus.trigger('slept');
@@ -59,7 +61,7 @@ describe('beds view', function () {
         assert.equal(bedsView.$el.find('img').length, 2);
       });
 
-    });
+    });*/
   });
 
 });

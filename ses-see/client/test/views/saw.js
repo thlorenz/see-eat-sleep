@@ -19,7 +19,7 @@ describe('saw view', function () {
       });
 
       globalSaw = false;
-      globalBus.on('ses-see-saw', function () {
+      globalBus.on('ses-see:saw', function () {
         globalSaw = true;
       });
 

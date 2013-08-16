@@ -16,7 +16,7 @@ var BedsView = module.exports = Backbone.View.extend({
       success: function (beds, res, opts) {
         view.beds = beds;
         view.ready = true;
-        localBus.on('slept', view.addBed, view);
+        view.listenTo(globalBus, 'ses-eat:ate', view.showBed);
         localBus.trigger('beds:view:ready');
       },
       error: function (beds, res, opts) {
@@ -24,15 +24,14 @@ var BedsView = module.exports = Backbone.View.extend({
       }
     });
 
-    this.listenTo(globalBus, 'ses-see-eat:ate', this.addBed);
   },
 
-  addBed: function () {
+  showBed: function () {
     var images = this.beds.get('images');
     var url = images[this.imgIdx++];
     if (!url) url = images[this.imgIdx = 0];
     var html = bedTemplslept({ url: url});
-    this.$el.append(html);
+    this.$el.html(html);
   }
 
 });

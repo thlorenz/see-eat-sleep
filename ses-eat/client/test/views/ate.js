@@ -19,7 +19,7 @@ describe('ate view', function () {
       });
 
       globalAte = false;
-      globalBus.on('ses-eat-ate', function () {
+      globalBus.on('ses-eat:ate', function () {
         globalAte = true;
       });
 
