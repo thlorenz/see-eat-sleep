@@ -22,10 +22,6 @@ describe('sleep main', function () {
       assert.ok(mainView);
     });
 
-    it('main view has slept view', function () {
-      assert.ok(mainView.sleptView);
-    });
-
     it('main view has beds view', function () {
       assert.ok(mainView.bedsView);
     });

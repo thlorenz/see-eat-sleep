@@ -1,7 +1,8 @@
 'use strict';
 
 var go = module.exports = [
-  'http://studylogic.net/wp-content/uploads/2013/01/burger.jpg',
-  'http://www.rentcafe.com/blog/wp-content/uploads/2012/11/soul-bed.jpg',
-  'http://www.rentcafe.com/blog/wp-content/uploads/2011/11/thanksgiving.jpg'
+  'http://blog.ableogre.com/wp-content/uploads/2013/01/frame_mattress.jpg',
+  'http://i.ebayimg.com/00/$T2eC16NHJGwFFZ,eEJyyBRY0n,TCM!~~_32.JPG',
+  'http://www.hamburgerbed.com/img/hamburger_bed.jpg',
+  'http://petradioshow.com/wp-content/uploads/2013/04/fat-orange-cat-in-bed-300x225.jpg'
 ];

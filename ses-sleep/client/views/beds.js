@@ -3,6 +3,7 @@
 var Backbone = require('backbone');
 var bedTemplslept = require('../../templates/partials/bed.hbs');
 var localBus = require('../lib/local-bus');
+var globalBus = require('ses-core').globalBus;
 
 var BedsView = module.exports = Backbone.View.extend({
 
@@ -22,6 +23,8 @@ var BedsView = module.exports = Backbone.View.extend({
         console.error(res);
       }
     });
+
+    this.listenTo(globalBus, 'ses-see-eat:ate', this.addBed);
   },
 
   addBed: function () {
