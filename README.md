@@ -21,9 +21,19 @@ Launch **main app**:
 
     npm start
 
-Launch **see sub app**:
+Launch **see feature**:
     
-    cd see && npm start
+    cd ses-see && npm start
+
+## Running tests
+  
+Run all tests:
+
+    npm test
+
+Run only **see feature** tests:
+
+    cd ses-see && npm test
 
 ## License
 
