@@ -1,3 +1,11 @@
 #ses-aside-main {
-  background: #AA1111;
+  background: #111111;
+  color: antiquewhite;
+  padding: 20px;
+  width: 150px;
+}
+
+#ses-aside-main h3 {
+  text-align: center;
+  text-decoration: underline;
 }
