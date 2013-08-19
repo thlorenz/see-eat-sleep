@@ -14,8 +14,9 @@
     "postinstall": "npm dedupe",
     "start": "nodemon -e js,css,hbs,json ./node_modules/.bin/appup --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
     "test-client": "echo 'no client side js at this point' || zuul client/test/views/ --config ./zuul-test-config.js",
+    "test-pages-integration": "tap app/pages/test-integration",
     "start-test": "zuul client/test/views/ --server 3002 --config ./zuul-test-config.js",
-    "test": "npm run test-client"
+    "test": "npm run test-client && npm run test-pages-integration"
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,8 @@
     "tap": "~0.4.4",
     "express": "~3.3.5",
     "zuul": "~0.2.0",
-    "restify": "~2.6.0"
+    "restify": "~2.6.0",
+    "through": "~2.3.4"
   },
   "keywords": [],
   "author": {
