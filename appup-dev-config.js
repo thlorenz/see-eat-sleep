@@ -14,7 +14,17 @@ exports.bundleOpts = core.bundleOpts;
 
 exports.initPages = function (pagesApp, express, apiServerInfo) {
   app.initPages(pagesApp, express, apiServerInfo);
-  pagesApp.use(core.renderViewMiddleware(viewPath, { title: 'see-eat-sleep' }));
+  var context = {
+    title: 'see-eat-sleep',
+    aside: {
+      links: [
+        { title: 'see', url: '/navigate/see' },
+        { title: 'eat', url: '/navigate/eat' },
+        { title: 'sleep', url: '/navigate/sleep' }
+      ]
+    }
+  };
+  pagesApp.use(core.renderViewMiddleware(viewPath, context));
 };
 
 exports.postInitPages = app.postInitPages;

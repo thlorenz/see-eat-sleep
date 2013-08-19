@@ -15,3 +15,7 @@
 # sleep
 ( cd ./ses-sleep && npm install && npm dedupe )
 [ -d ./node_modules/ses-sleep ] || ln -s ../ses-sleep ./node_modules/ses-sleep
+
+# aside
+( cd ./ses-aside && npm install && npm dedupe )
+[ -d ./node_modules/ses-aside ] || ln -s ../ses-aside ./node_modules/ses-aside
