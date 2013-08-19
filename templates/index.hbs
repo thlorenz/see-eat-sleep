@@ -6,13 +6,19 @@
   {{> ses-eat-head }}
   {{> ses-sleep-head }}
   {{> ses-aside-head }}
+  {{> ses-app-head }}
 </head>
 <body>
-  {{> ses-core-header }}
-  {{> ses-see-main see }}
-  {{> ses-eat-main eat }}
-  {{> ses-sleep-main sleep }}
-  {{> ses-aside-main aside }}
+  <div class="aside">
+    {{> ses-aside-main aside }}
+  </div>
+
+  <div class="wrapper">
+    {{> ses-core-header }}
+    {{> ses-see-main see }}
+    {{> ses-eat-main eat }}
+    {{> ses-sleep-main sleep }}
+  </div>
 
   {{> ses-core-scripts-body-js }}
 </body>

@@ -1,0 +1,12 @@
+.aside, .wrapper {
+  float: left;
+  margin: 10px;
+}
+
+.wrapper {
+  width: 800px;
+}
+
+#ses-aside-main {
+  margin-top: 15px;
+}

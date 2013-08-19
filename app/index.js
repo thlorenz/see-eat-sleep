@@ -5,11 +5,14 @@ var eat = require('ses-eat');
 var sleep = require('ses-sleep');
 var aside = require('ses-aside');
 
+var pages = require('./pages');
+
 exports.initPages = function (pagesApp, express, apiServerInfo) {
   see.initPages(pagesApp, express, apiServerInfo);
   eat.initPages(pagesApp, express, apiServerInfo);
   sleep.initPages(pagesApp, express, apiServerInfo);
   aside.initPages(pagesApp, express, apiServerInfo);
+  pages.init(pagesApp, express, apiServerInfo);
 };
 
 exports.postInitPages = function (pagesApp, pagesServer, express) {
