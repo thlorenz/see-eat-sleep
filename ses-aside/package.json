@@ -1,0 +1,52 @@
+{
+  "name": "ses-aside",
+  "version": "0.0.0",
+  "description": "the sidebar of the app",
+  "main": "./app/index.js",
+  "browser": "./client/aside.js",
+  "browserify": {
+    "transform": [
+      "hbsfy"
+    ]
+  },
+  "scripts": {
+    "preinstall": "sh ./preinstall.sh",
+    "postinstall": "npm dedupe",
+    "start": "nodemon -e js,css,hbs,json ./node_modules/.bin/appup --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
+    "test-client": "zuul client/test/views/ --config ./zuul-test-config.js",
+    "start-test": "zuul client/test/views/ --server 3002 --config ./zuul-test-config.js",
+    "test": "npm run test-client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thlorenz/ses-aside.git"
+  },
+  "homepage": "https://github.com/thlorenz/ses-aside",
+  "optionalDependencies": {},
+  "dependencies": {
+    "hbsfy": "~0.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "~0.7.8",
+    "sinon": "~1.7.3",
+    "mocha": "~1.12.0",
+    "appup": "0.0.5",
+    "tap": "~0.4.4",
+    "express": "~3.3.5",
+    "zuul": "~0.2.0",
+    "restify": "~2.6.0"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Thorsten Lorenz",
+    "email": "thlorenz@gmx.de",
+    "url": "http://thlorenz.com"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/thlorenz/ses-aside/blob/master/LICENSE"
+  },
+  "engine": {
+    "node": ">=0.6"
+  }
+}
