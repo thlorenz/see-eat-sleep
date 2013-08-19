@@ -13,7 +13,7 @@
     "preinstall": "sh ./preinstall.sh",
     "postinstall": "npm dedupe",
     "start": "nodemon -e js,css,hbs,json ./node_modules/.bin/appup --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
-    "test-client": "zuul client/test/views/ --config ./zuul-test-config.js",
+    "test-client": "echo 'no client side js at this point' || zuul client/test/views/ --config ./zuul-test-config.js",
     "start-test": "zuul client/test/views/ --server 3002 --config ./zuul-test-config.js",
     "test": "npm run test-client"
   },
