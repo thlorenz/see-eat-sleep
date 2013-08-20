@@ -15,12 +15,14 @@ VisibilityController.prototype.hide = function (names, cb) {
   Object.keys(views)
     .filter(function (k) { return ~names.indexOf(k); })
     .forEach(function (k) {
-      views[k].$el.slideUp({ duration: 200, queue: true });
+      var view = views[k];
+      if (view.$el.is(':visible')) view.$el.slideUp({ duration: 200, queue: true });
     });
 };
 
 VisibilityController.prototype.show = function (name) {
-  this.views[name].$el.slideDown({ duration: 200, queue: true });
+  var view = this.views[name];
+  if (!view.$el.is(':visible')) view.$el.slideDown({ duration: 200, queue: true });
 };
 
 VisibilityController.prototype.showOnly = function (name) {

@@ -7,7 +7,7 @@ var path = require('path');
 var asideCtx = require('../contexts/aside');
 
 module.exports = function (app, express) {
-  app.get('/feature/see', function (req, res, next) {
+  app.get('/feature/eat', function (req, res, next) {
     var context = {
       title :  'see-eat-sleep',
       aside :  asideCtx,
@@ -18,7 +18,7 @@ module.exports = function (app, express) {
 
     core.renderView(path.join(dirs.templates, 'index.hbs'), context, function (err, html) {
       if (err) return next(err);
-      res.html(200, html);
+      res.send(html);
     });
   });
 };

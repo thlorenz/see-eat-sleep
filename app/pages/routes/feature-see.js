@@ -18,7 +18,7 @@ module.exports = function (app, express) {
 
     core.renderView(path.join(dirs.templates, 'index.hbs'), context, function (err, html) {
       if (err) return next(err);
-      res.html(200, html);
+      res.send(html);
     });
   });
 };
