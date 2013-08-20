@@ -8,4 +8,5 @@ var client = path.join(root, 'client');
 exports.templates  =  path.join(root, 'templates');
 exports.partials   =  path.join(exports.templates, 'partials');
 exports.css        =  path.join(client, 'css');
+exports.img        =  path.join(client, 'img');
 exports.clientTest =  path.join(client, 'test');
