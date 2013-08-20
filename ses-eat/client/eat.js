@@ -7,3 +7,4 @@ exports.init = function () {
   core.init();
   return new MainView({ el: '#ses-eat-main' });
 };
+

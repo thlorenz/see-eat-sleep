@@ -15,5 +15,5 @@ module.exports = Backbone.View.extend({
       el: this.$('.ses-see-sights'),
       model: new SightsModel()
     });
-  }
+  },
 });

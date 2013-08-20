@@ -2,7 +2,7 @@
 
 var Backbone = require('backbone');
 var $ = require('jquery');
-var router = require('../lib/router');
+var initRouter = require('../lib/router');
 
 /**
  * The main app view which handles routing and control of featur apps
@@ -11,14 +11,19 @@ var router = require('../lib/router');
  * @function
  */
 var AppView = module.exports = Backbone.View.extend({
+  visibilityController: undefined,
 
-  initialize: function () {
+  initialize: function (opts) {
+    this.visibilityController = opts.visibilityController;
+    
+    var router = this.router = initRouter({ visibilityController: this.visibilityController });
+
     // Prevent default navigation for routes defined in the backbone router
     this.$el.on('click', 'a', function (evt) {
       var href = $(this).attr("href");
       if (router.match(href)) {
         evt.preventDefault();
-        Backbone.history.navigate(href, { trigger: false });
+        Backbone.history.navigate(href, { trigger: true });
       }
     });
   }
