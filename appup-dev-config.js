@@ -18,9 +18,9 @@ exports.initPages = function (pagesApp, express, apiServerInfo) {
     title: 'see-eat-sleep',
     aside: {
       links: [
-        { title: 'see', url: '/navigate/see' },
-        { title: 'eat', url: '/navigate/eat' },
-        { title: 'sleep', url: '/navigate/sleep' }
+        { title: 'see', url: '/feature/see' },
+        { title: 'eat', url: '/feature/eat' },
+        { title: 'sleep', url: '/feature/sleep' }
       ]
     }
   };

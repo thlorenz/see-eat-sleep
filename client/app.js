@@ -1,15 +1,13 @@
 'use strict';
 
-var Backbone = require('backbone');
+var $ = require('jquery');
 
 var see = require('ses-see');
 var eat = require('ses-eat');
 var sleep = require('ses-sleep');
 var aside = require('ses-aside');
 
-var Router = require('./lib/router');
-var Backbone = require('backbone');
-var $ = require('jquery');
+var AppView = require('./views/app');
 
 exports.init = function () {
   see.init();
@@ -17,13 +15,5 @@ exports.init = function () {
   sleep.init();
   aside.init();
 
-  var router = new Router();
-  Backbone.history.start({pushState: true});
-
-  // Prevent default navigation
-  $('body').on('click', 'a', function (evt) {
-    var href = $(this).attr("href");
-    evt.preventDefault();
-    Backbone.history.navigate(href, true);
-  });
+  var appView = new AppView({ el: $(document) });
 };
