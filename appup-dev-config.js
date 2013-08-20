@@ -4,6 +4,8 @@ var path = require('path');
 var core = require('ses-core');
 var dirs = require('./config/directories');
 
+var asideCtx = require('./app/pages/contexts/aside');
+
 var app = require('./app');
 
 var viewPath = path.join(dirs.templates, 'index.hbs');
@@ -16,14 +18,12 @@ exports.initPages = function (pagesApp, express, apiServerInfo) {
   app.initPages(pagesApp, express, apiServerInfo);
   var context = {
     title: 'see-eat-sleep',
-    aside: {
-      links: [
-        { title: 'see', url: '/feature/see' },
-        { title: 'eat', url: '/feature/eat' },
-        { title: 'sleep', url: '/feature/sleep' }
-      ]
-    }
+    aside: asideCtx,
+    see: { },
+    eat: { clazz: 'ses-hidden' },
+    sleep: { clazz: 'ses-hidden' }
   };
+
   pagesApp.use(core.renderViewMiddleware(viewPath, context));
 };
 

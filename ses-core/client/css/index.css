@@ -5,3 +5,7 @@
   border-radius: 10px 5px 10px 5px;
   color: rgb(180, 180, 114);
 }
+
+.ses-hidden {
+  display: none;
+}
