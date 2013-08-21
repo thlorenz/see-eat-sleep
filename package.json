@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npm dedupe",
-    "start": "nodemon -e js,css,hbs,json ./node_modules/.bin/appup --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
+    "start": "nodemon -e js,css,hbs,json ../../appup/bin/appup --dedupe --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
     "test": " npm test ses-core && npm test ses-aside && npm test ses-see && npm test ses-eat && npm test ses-sleep"
   },
   "repository": {
@@ -18,11 +18,12 @@
     "ses-aside": "git://github.com/thlorenz/ses-aside",
     "ses-see": "git://github.com/thlorenz/ses-see",
     "ses-eat": "git://github.com/thlorenz/ses-eat",
-    "ses-sleep": "git://github.com/thlorenz/ses-sleep"
+    "ses-sleep": "git://github.com/thlorenz/ses-sleep",
+    "underscore": "~1.5.1",
+    "backbone": "~1.0.0"
   },
   "devDependencies": {
     "nodemon": "~0.7.8",
-    "appup": "0.0.5",
     "zuul": "~0.2.0",
     "through": "~2.3.4",
     "concat-stream": "~1.0.1",
@@ -30,7 +31,8 @@
     "restify": "~2.6.0",
     "mocha": "~1.12.0",
     "sinon": "~1.7.3",
-    "tap": "~0.4.4"
+    "tap": "~0.4.4",
+    "appup": "0.0.6"
   },
   "keywords": [],
   "author": {
