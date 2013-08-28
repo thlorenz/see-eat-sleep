@@ -41,11 +41,18 @@ Run only **see feature** tests:
 
 ## Feature apps
 
+All feature apps have the same structure outlined in the [barebones see-eat-sleep feature](https://github.com/thlorenz/ses-barebones).
+
 - [aside](https://github.com/thlorenz/ses-aside)
 
 - [see](https://github.com/thlorenz/ses-see)
 - [eat](https://github.com/thlorenz/ses-eat)
 - [sleep](https://github.com/thlorenz/ses-sleep)
+
+## Adding more features
+
+The easiest way is to get started with the [barebones see-eat-sleep feature](https://github.com/thlorenz/ses-barebones).
+You can read more on how to get started and customize your feature there.
 
 ## License
 
