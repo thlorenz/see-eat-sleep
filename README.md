@@ -35,6 +35,10 @@ Run only **see feature** tests:
 
     cd ses-see && npm test
 
+## More docs
+
+- [suggested feature structure](https://github.com/thlorenz/ses-barebones#structure).
+
 ## Core app that supports all feature apps
 
 - [core](https://github.com/thlorenz/ses-core)
