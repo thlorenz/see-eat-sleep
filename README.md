@@ -1,6 +1,6 @@
 # see-eat-sleep
 
-Example of building a larger app with multiple smaller apps using npm and browserify.
+Example of building a larger app with multiple smaller feature apps using npm and browserify.
 
 ## Installation
 
@@ -34,6 +34,18 @@ Run all tests:
 Run only **see feature** tests:
 
     cd ses-see && npm test
+
+## Core app that supports all feature apps
+
+- [core](https://github.com/thlorenz/ses-core)
+
+## Feature apps
+
+- [aside](https://github.com/thlorenz/ses-aside)
+
+- [see](https://github.com/thlorenz/ses-see)
+- [eat](https://github.com/thlorenz/ses-eat)
+- [sleep](https://github.com/thlorenz/ses-sleep)
 
 ## License
 
