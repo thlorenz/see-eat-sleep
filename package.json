@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npm dedupe",
-    "start": "nodemon -e js,css,hbs,json ../../appup/bin/appup --dedupe --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
+    "start": "nodemon -e js,css,hbs,json ./node_modules/.bin/appup --dedupe --config ./appup-dev-config.js --api 4000 --pages 3000 ./client/init",
     "test": " npm test ses-core && npm test ses-aside && npm test ses-see && npm test ses-eat && npm test ses-sleep"
   },
   "repository": {
